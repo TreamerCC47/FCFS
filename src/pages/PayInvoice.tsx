@@ -30,6 +30,7 @@ const invoice = {
   description: 'Monthly accounting & compliance',
   period: 'September 2024',
   amount: 'R4,250.00',
+  checkoutUrl: 'https://whop.com/future-cents/itr14-tax-return/',
 };
 
 function Brand({ compact = false }: { compact?: boolean }) {
@@ -171,101 +172,63 @@ function CreditCardIcon() {
   return <span className="relative block h-[13px] w-[18px] rounded-[3px] border-[1.5px] border-current"><span className="absolute inset-x-0 top-[3px] border-t-[1.5px] border-current" /></span>;
 }
 
-function PaymentForm({ method, setMethod, onSuccess }: { method: PaymentMethod; setMethod: (method: PaymentMethod) => void; onSuccess: () => void }) {
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiry, setExpiry] = useState('');
-  const [cvc, setCvc] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [reference, setReference] = useState('');
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    setErrors({});
-  }, [method]);
-
-  const formattedCard = useMemo(() => cardNumber.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim(), [cardNumber]);
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    const nextErrors: Record<string, string> = {};
-    if (!name.trim()) nextErrors.name = 'Enter the name on the payment.';
-    if (!email.includes('@')) nextErrors.email = 'Enter a valid email address.';
-    if (method === 'card') {
-      if (cardNumber.replace(/\D/g, '').length < 16) nextErrors.cardNumber = 'Enter the 16-digit card number.';
-      if (!/^\d{2}\/\d{2}$/.test(expiry)) nextErrors.expiry = 'Use MM/YY.';
-      if (cvc.length < 3) nextErrors.cvc = 'Enter the 3-digit security code.';
-    }
-    setErrors(nextErrors);
-    if (Object.keys(nextErrors).length > 0) return;
-    setIsSubmitting(true);
-    window.setTimeout(() => {
-      setIsSubmitting(false);
-      onSuccess();
-    }, 1100);
-  };
-
+function PaymentForm() {
   return (
-    <section className="soft-card reveal reveal-delay-2 rounded-[1.35rem] p-5 sm:p-7" data-testid="section-payment-form">
+    <section
+      className="soft-card reveal reveal-delay-2 rounded-[1.35rem] p-5 sm:p-7"
+      data-testid="section-payment-form"
+    >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[.66rem] font-bold uppercase tracking-[.16em] text-[#6e7d71]">Payment details</p>
-          <h2 className="mt-1 text-[1.15rem] font-extrabold tracking-[-.04em] text-[#16392e]" data-testid="text-payment-heading">Choose how you’d like to pay</h2>
+          <p className="text-[.66rem] font-bold uppercase tracking-[.16em] text-[#6e7d71]">
+            Secure payment
+          </p>
+
+          <h2
+            className="mt-1 text-[1.15rem] font-extrabold tracking-[-.04em] text-[#16392e]"
+            data-testid="text-payment-heading"
+          >
+            Pay securely with Whop
+          </h2>
         </div>
-        <div className="hidden items-center gap-1.5 rounded-full bg-[#f2eee4] px-2.5 py-1.5 text-[.6rem] font-bold text-[#6a796e] sm:flex" data-testid="status-demo-mode">
-          <Sparkles size={12} className="text-[#ab8442]" />
-          Demo checkout
+
+        <div className="hidden items-center gap-1.5 rounded-full bg-[#e7eee4] px-2.5 py-1.5 text-[.6rem] font-bold text-[#315e4c] sm:flex">
+          <ShieldCheck size={12} />
+          Hosted checkout
         </div>
-      </div>
-      <div className="mt-5 flex gap-2.5" role="group" aria-label="Payment method">
-        <MethodButton method="card" active={method === 'card'} onClick={() => setMethod('card')} />
-        <MethodButton method="eft" active={method === 'eft'} onClick={() => setMethod('eft')} />
       </div>
 
-      {method === 'card' ? (
-        <div className="mt-5 space-y-4" data-testid="form-card-details">
-          <Field id="cardNumber" label="Card number" value={formattedCard} placeholder="1234 5678 9012 3456" onChange={setCardNumber} error={errors.cardNumber} inputMode="numeric" />
-          <div className="grid grid-cols-2 gap-3">
-            <Field id="expiry" label="Expiry date" value={expiry} placeholder="MM / YY" onChange={(value) => setExpiry(value.replace(/[^\d/]/g, '').replace(/^(\d{2})(\d)/, '$1/$2').slice(0, 5))} error={errors.expiry} inputMode="numeric" maxLength={5} />
-            <Field id="cvc" label="CVC" value={cvc} placeholder="123" onChange={(value) => setCvc(value.replace(/\D/g, '').slice(0, 4))} error={errors.cvc} inputMode="numeric" maxLength={4} />
+      <div className="mt-5 rounded-xl border border-[#dce7db] bg-[#f1f6ef] p-4">
+        <div className="flex gap-3">
+          <div className="mt-0.5 text-[#315e4c]">
+            <LockKeyhole size={18} strokeWidth={1.8} />
+          </div>
+
+          <div>
+            <p className="text-[.76rem] font-bold text-[#24493a]">
+              Your payment is handled securely
+            </p>
+
+            <p className="mt-1 text-[.69rem] leading-relaxed text-[#637268]">
+              You will be redirected to Whop to complete payment. FutureCents
+              does not collect or store your card details.
+            </p>
           </div>
         </div>
-      ) : (
-        <div className="mt-5 rounded-xl border border-[#e2d8bc] bg-[#faf3df] p-4" data-testid="panel-eft-details">
-          <div className="flex gap-3">
-            <div className="mt-0.5 text-[#9a7437]"><Banknote size={18} strokeWidth={1.8} /></div>
-            <div>
-              <p className="text-[.76rem] font-bold text-[#594a2b]">FutureCents business account</p>
-              <p className="mt-1 text-[.69rem] leading-relaxed text-[#756744]">Make your EFT using the details below. Use your invoice number as the payment reference so we can match it quickly.</p>
-              <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-[#e6d8b8] pt-3 text-[.7rem]">
-                <span className="text-[#877752]">Bank</span><strong className="text-right text-[#594a2b]">Nedbank</strong>
-                <span className="text-[#877752]">Account</span><strong className="text-right font-mono-brand text-[#594a2b]">1098 442 671</strong>
-                <span className="text-[#877752]">Branch code</span><strong className="text-right font-mono-brand text-[#594a2b]">198765</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
-        <Field id="name" label="Your name" value={name} placeholder="e.g. Thabo Mahlangu" onChange={setName} error={errors.name} />
-        <Field id="email" label="Email for receipt" value={email} placeholder="you@yourbusiness.co.za" onChange={setEmail} error={errors.email} type="email" />
       </div>
-      {method === 'eft' && <Field id="reference" label="Payment reference" value={reference} placeholder={invoice.number} onChange={setReference} className="mt-4" />}
 
-      <div className="mt-6 flex items-start gap-2.5 rounded-lg bg-[#f4f1e8] px-3.5 py-3 text-[.67rem] leading-relaxed text-[#69786e]" data-testid="text-payment-security-note">
-        <LockKeyhole size={14} className="mt-0.5 shrink-0 text-[#315e4c]" />
-        <span>Your details are used for this demo only. No money will be moved or charged.</span>
-      </div>
-      <button
-        type="button"
-        onClick={handleSubmit}
-        disabled={isSubmitting}
-        className="mt-5 flex min-h-[3.35rem] w-full items-center justify-center gap-2 rounded-xl bg-[#255c4a] px-5 text-[.82rem] font-bold text-[#f8f1df] shadow-[0_8px_20px_rgba(37,92,74,.17)] transition-all hover:-translate-y-0.5 hover:bg-[#1b4c3c] disabled:cursor-wait disabled:opacity-75 disabled:hover:translate-y-0"
-        data-testid="button-submit-payment"
+      <a
+        href={invoice.checkoutUrl}
+        className="mt-5 flex min-h-[3.35rem] w-full items-center justify-center gap-2 rounded-xl bg-[#255c4a] px-5 text-[.82rem] font-bold text-[#f8f1df] shadow-[0_8px_20px_rgba(37,92,74,.17)] transition-all hover:-translate-y-0.5 hover:bg-[#1b4c3c]"
+        data-testid="link-whop-checkout"
       >
-        {isSubmitting ? <><span className="size-4 animate-pulse rounded-full border-2 border-[#f8f1df]/35 border-t-[#f8f1df]" /> Securing your payment...</> : <>Pay {invoice.amount} <ArrowRight size={16} /></>}
-      </button>
+        Continue to secure payment
+        <ArrowRight size={16} />
+      </a>
+
+      <p className="mt-3 text-center text-[.65rem] leading-relaxed text-[#78847c]">
+        Whop will show the available payment methods for this invoice.
+      </p>
     </section>
   );
 }
@@ -355,7 +318,7 @@ export default function PayInvoice() {
           </aside>
           <main className="space-y-4">
             <InvoiceSummary />
-            <PaymentForm method={method} setMethod={setMethod} onSuccess={() => setPaymentState('success')} />
+         <PaymentForm />
             <div className="reveal reveal-delay-3 flex items-center justify-between px-1 pt-2">
               <button type="button" onClick={() => setDetailsOpen(!detailsOpen)} className="flex items-center gap-1 text-[.68rem] font-bold text-[#6c7c70] hover:text-[#315e4c]" data-testid="button-toggle-invoice-details" aria-expanded={detailsOpen}>
                 <FileText size={14} /> View invoice details <ChevronDown size={13} className={`transition-transform ${detailsOpen ? 'rotate-180' : ''}`} />
