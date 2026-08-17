@@ -77,6 +77,13 @@ export function Navbar() {
                 )}
               </button>
             ))}
+                        <Link
+              href="/pay"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Pay Invoice
+            </Link>
           </div>
           <div className="flex items-center gap-3">
             <Button asChild variant="outline" className="gap-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 hover:text-[#25D366]">
@@ -113,6 +120,13 @@ export function Navbar() {
               {link.name}
             </button>
           ))}
+                    <Link
+            href="/pay"
+            onClick={() => setMobileMenuOpen(false)}
+            className="py-2 text-left text-lg font-medium text-foreground"
+          >
+            Pay Invoice
+          </Link>
           <Button asChild variant="outline" className="w-full mt-2 border-[#25D366] text-[#25D366]">
             <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer">
               <MessageSquare className="w-4 h-4 mr-2" /> WhatsApp Us
