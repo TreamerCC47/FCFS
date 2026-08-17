@@ -93,6 +93,7 @@
   html { scroll-behavior: smooth; }
 }
 
+
 ::selection { background: hsl(var(--secondary)); color: hsl(var(--foreground)); }
 
 .payment-page {

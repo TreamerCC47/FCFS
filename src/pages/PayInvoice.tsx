@@ -302,8 +302,8 @@ function SupportPanel({ onClose }: { onClose: () => void }) {
         </div>
         <p className="mt-3 text-[.78rem] leading-relaxed text-[#65756a]">Questions about this invoice or your account? Speak to the team that knows your business.</p>
         <div className="mt-5 grid gap-2.5">
-          <a href="mailto:enquiries@futurecents.co.za" className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]" data-testid="link-support-email"><Mail size={16} /> enquiries@futurecents.co.za <MoveUpRight size={14} className="ml-auto" /></a>
-          <a href="tel:+27816733268" className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]" data-testid="link-support-phone"><Phone size={16} /> +27 81 673 3268 <MoveUpRight size={14} className="ml-auto" /></a>
+          <a href="mailto:hello@futurecents.co.za" className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]" data-testid="link-support-email"><Mail size={16} /> hello@futurecents.co.za <MoveUpRight size={14} className="ml-auto" /></a>
+          <a href="tel:+27105550184" className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]" data-testid="link-support-phone"><Phone size={16} /> +27 10 555 0184 <MoveUpRight size={14} className="ml-auto" /></a>
         </div>
         <button type="button" onClick={onClose} className="mt-5 w-full rounded-xl bg-[#255c4a] py-3 text-[.75rem] font-bold text-[#f8f1df] hover:bg-[#1b4c3c]" data-testid="button-support-done">Back to payment</button>
       </section>
@@ -364,7 +364,7 @@ export default function PayInvoice() {
                 <Download size={14} /> Save invoice
               </button>
             </div>
-            {detailsOpen && <div className="reveal rounded-xl border border-[#e2ddcf] bg-[#f9f7f0] px-4 py-3 text-[.7rem] text-[#69786e]" data-testid="panel-invoice-details">FutureCents (Pty) Ltd ·Reg. 2025/671536/07 · Professional accounting, payroll and compliance services.</div>}
+            {detailsOpen && <div className="reveal rounded-xl border border-[#e2ddcf] bg-[#f9f7f0] px-4 py-3 text-[.7rem] text-[#69786e]" data-testid="panel-invoice-details">FutureCents (Pty) Ltd · VAT Reg. 4580293187 · Professional accounting, payroll and compliance services.</div>}
           </main>
         </div>
         <footer className="flex flex-col gap-2 border-t border-[#dddccd] py-6 text-[.65rem] text-[#7d887f] sm:flex-row sm:items-center sm:justify-between" data-testid="footer-payment">
