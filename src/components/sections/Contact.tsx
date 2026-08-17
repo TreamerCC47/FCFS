@@ -1,0 +1,168 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { MessageSquare, Mail, MapPin, Lock, ShieldCheck, Clock } from "lucide-react";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Valid email is required"),
+  businessType: z.string().min(2, "Business type/industry is required"),
+  message: z.string().min(10, "Please provide a brief message")
+});
+
+type FormData = z.infer<typeof formSchema>;
+
+export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    resolver: zodResolver(formSchema)
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
+    setIsSuccess(true);
+  };
+
+  return (
+    <section id="contact" className="py-24 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="bg-primary rounded-3xl overflow-hidden shadow-2xl">
+          <div className="grid lg:grid-cols-2">
+            
+            {/* Left Info Panel */}
+            <div className="p-10 lg:p-16 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-xl"></div>
+              
+              <div className="relative z-10">
+              <p className="text-muted-foreground">
+  Tell us which service you need and a little about your business. We’ll
+  review your requirements and respond with a tailored quote.
+</p>
+                <p className="text-primary-foreground/80 mb-12 max-w-md text-lg">
+                  Whether you need a full accounting team or just someone to handle your tax submissions, we're ready to help.
+                </p>
+                
+                <div className="space-y-8">
+                  <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                      <MessageSquare className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-primary-foreground/60 font-medium">WhatsApp Us</p>
+                      <p className="font-semibold text-lg">+27 81 673 3268</p>
+                    </div>
+                  </a>
+                  
+                  <a href="mailto:enquiries@futurecents.co.za" className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-colors">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-primary-foreground/60 font-medium">Email</p>
+                      <p className="font-semibold text-lg">enquiries@futurecents.co.za</p>
+                    </div>
+                  </a>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-primary-foreground/60 font-medium">Location</p>
+                      <p className="font-semibold text-lg">Remote across South Africa</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-16 relative z-10">
+                <Button asChild className="bg-[#25D366] text-white hover:bg-[#20b858] border-none text-base h-12 gap-2 w-full sm:w-auto mb-3">
+                  <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer">
+                    <MessageSquare className="w-5 h-5" /> Chat on WhatsApp Now
+                  </a>
+                </Button>
+                <div className="flex items-center gap-2 text-primary-foreground/80 text-sm font-medium">
+                  <Clock className="w-4 h-4" /> Typically responds within 2 hours
+                </div>
+              </div>
+            </div>
+
+            {/* Right Form Panel */}
+            <div className="bg-white p-10 lg:p-16 border-l border-border flex flex-col justify-center">
+              {isSuccess ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="h-full flex flex-col items-center justify-center text-center space-y-4"
+                >
+                  <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-4">
+                    <MessageSquare className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Message Sent!</h3>
+                  <p className="text-muted-foreground">We'll get back to you within 24 hours to discuss how we can help your business.</p>
+                  <Button variant="outline" onClick={() => setIsSuccess(false)} className="mt-4">
+                    Send another message
+                  </Button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <h3 className="text-2xl font-bold text-foreground mb-6">Or leave an enquiry</h3>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">Full Name</label>
+                    <Input {...register("name")} placeholder="John Doe" className="bg-background h-11" />
+                    {errors.name && <p className="text-destructive text-xs">{errors.name.message}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">Email Address</label>
+                    <Input {...register("email")} type="email" placeholder="john@company.co.za" className="bg-background h-11" />
+                    {errors.email && <p className="text-destructive text-xs">{errors.email.message}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">Business Type / Industry</label>
+                    <Input {...register("businessType")} placeholder="e.g. Creative Agency, Retail" className="bg-background h-11" />
+                    {errors.businessType && <p className="text-destructive text-xs">{errors.businessType.message}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">Which service do you need a quote for?</label>
+                    <Textarea {...register("message")} placeholder="Tell us which service you need, your business type, and anything else we should know..." className="bg-background resize-none h-32 py-3" />
+                    {errors.message && <p className="text-destructive text-xs">{errors.message.message}</p>}
+                  </div>
+
+                  <div className="pt-2">
+                    <Button type="submit" size="lg" className="w-full mb-6 h-12 text-base" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Submit Enquiry"}
+                    </Button>
+                    <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground text-xs font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <Lock className="w-4 h-4 text-primary" /> 256-bit encrypted
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-primary" /> POPIA compliant
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              )}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
