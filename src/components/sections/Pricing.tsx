@@ -20,7 +20,7 @@ const packages = [
     name: "Tax Lite",
     description:
       "Essential tax support for individuals, freelancers, and small businesses.",
-    price: 1500,
+    price: 155500,
     billing: "month",
     checkoutUrl: checkoutLinks.taxLite,
     features: [
