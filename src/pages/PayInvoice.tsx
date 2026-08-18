@@ -24,6 +24,25 @@ type Invoice = {
   due_date: string;
   status: 'unpaid' | 'pending' | 'paid' | 'cancelled';
 };
+type ApiPayload = {
+  invoice?: Invoice;
+  purchaseUrl?: string;
+  error?: string;
+};
+
+async function readApiPayload(response: Response): Promise<ApiPayload> {
+  const text = await response.text();
+
+  if (!text) {
+    throw new Error(`Server returned status ${response.status}`);
+  }
+
+  try {
+    return JSON.parse(text) as ApiPayload;
+  } catch {
+    throw new Error(text);
+  }
+}
 
 function Brand({ compact = false }: { compact?: boolean }) {
   return (
@@ -487,10 +506,7 @@ export default function PayInvoice() {
         }),
       });
 
-      const payload = (await result.json()) as {
-        invoice?: Invoice;
-        error?: string;
-      };
+const payload = await readApiPayload(result);
 
       if (!result.ok || !payload.invoice) {
         throw new Error(payload.error || 'Unable to find this invoice');
@@ -528,10 +544,7 @@ export default function PayInvoice() {
         }),
       });
 
-      const payload = (await result.json()) as {
-        purchaseUrl?: string;
-        error?: string;
-      };
+ const payload = await readApiPayload(result);
 
       if (!result.ok || !payload.purchaseUrl) {
         throw new Error(payload.error || 'Unable to prepare payment');
