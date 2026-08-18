@@ -15,6 +15,7 @@ function getString(value: unknown): string {
 }
 
 export default async function handler(
+
   request: ApiRequest,
   response: ApiResponse,
 ) {
@@ -55,17 +56,35 @@ export default async function handler(
       error: 'Invoice number and email are required',
     });
   }
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const whopApiKey = process.env.WHOP_API_KEY;
+const whopCompanyId = process.env.WHOP_COMPANY_ID;
+const publicSiteUrl = process.env.PUBLIC_SITE_URL;
 
-  const supabase = createClient(
-    supabaseUrl,
-    supabaseServiceRoleKey,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
-    },
-  );
+const missingVariables = [
+  ['SUPABASE_URL', supabaseUrl],
+  ['SUPABASE_SERVICE_ROLE_KEY', supabaseServiceRoleKey],
+  ['WHOP_API_KEY', whopApiKey],
+  ['WHOP_COMPANY_ID', whopCompanyId],
+  ['PUBLIC_SITE_URL', publicSiteUrl],
+]
+  .filter(([, value]) => !value)
+  .map(([name]) => name);
+
+if (missingVariables.length > 0) {
+  console.error('Missing checkout configuration:', missingVariables);
+
+  return res.status(500).json({
+    error: 'Checkout service is not configured',
+    missingVariables,
+  });
+}
+
+const supabase = createClient(
+  supabaseUrl,
+  supabaseServiceRoleKey,
+);
 
   const { data: invoice, error: invoiceError } = await supabase
     .from('invoices')
