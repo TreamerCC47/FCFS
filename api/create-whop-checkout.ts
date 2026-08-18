@@ -69,14 +69,7 @@ export default async function handler(
 
   const { data: invoice, error: invoiceError } = await supabase
     .from('invoices')
-    .select(
-      [
-        'invoice_number',
-        'customer_email',
-        'whop_plan_id',
-        'status',
-      ].join(', '),
-    )
+   .select('invoice_number, customer_email, whop_plan_id, status')
     .eq('invoice_number', invoiceNumber)
     .eq('customer_email', email)
     .maybeSingle();
