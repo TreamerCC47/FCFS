@@ -12,7 +12,8 @@ const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email is required"),
   businessType: z.string().min(2, "Business type/industry is required"),
-  message: z.string().min(10, "Please provide a brief message")
+  message: z.string().min(10, "Please provide a brief message"),
+  website: z.string().max(0).optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -20,18 +21,50 @@ type FormData = z.infer<typeof formSchema>;
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+const [submitError, setSubmitError] = useState("");
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: zodResolver(formSchema)
-  });
+const {
+  register,
+  handleSubmit,
+  reset,
+  formState: { errors },
+} = useForm<FormData>({
+  resolver: zodResolver(formSchema),
+});
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
+  setIsSubmitting(true);
+  setSubmitError("");
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const payload = (await response.json().catch(() => ({}))) as {
+      error?: string;
+    };
+
+    if (!response.ok) {
+      throw new Error(payload.error || "Unable to submit your enquiry");
+    }
+
+    reset();
     setIsSuccess(true);
-  };
+  } catch (error) {
+    setSubmitError(
+      error instanceof Error
+        ? error.message
+        : "Unable to submit your enquiry",
+    );
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <section id="contact" className="py-24 bg-background">
@@ -117,6 +150,15 @@ export function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+  <label htmlFor="website">Website</label>
+  <Input
+    id="website"
+    tabIndex={-1}
+    autoComplete="off"
+    {...register("website")}
+  />
+</div>
                   <h3 className="text-2xl font-bold text-foreground mb-6">Or leave an enquiry</h3>
                   
                   <div className="space-y-2">
@@ -144,6 +186,14 @@ export function Contact() {
                   </div>
 
                   <div className="pt-2">
+                    {submitError && (
+  <p
+    role="alert"
+    className="rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive"
+  >
+    {submitError}
+  </p>
+)}
                     <Button type="submit" size="lg" className="w-full mb-6 h-12 text-base" disabled={isSubmitting}>
                       {isSubmitting ? "Sending..." : "Submit Enquiry"}
                     </Button>
