@@ -127,7 +127,7 @@ export default async function handler(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        company_id: whopCompanyId,
+        
         plan_id: invoice.whop_plan_id,
         mode: 'payment',
         redirect_url: `${siteUrl}/#/pay?invoice=${encodeURIComponent(invoiceNumber)}`,
