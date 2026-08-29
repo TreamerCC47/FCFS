@@ -15,7 +15,6 @@ function getString(value: unknown): string {
 }
 
 export default async function handler(
-
   request: ApiRequest,
   response: ApiResponse,
 ) {
@@ -38,8 +37,20 @@ export default async function handler(
     !whopCompanyId ||
     !publicSiteUrl
   ) {
+    const missingVariables = [
+      ['SUPABASE_URL', supabaseUrl],
+      ['SUPABASE_SERVICE_ROLE_KEY', supabaseServiceRoleKey],
+      ['WHOP_API_KEY', whopApiKey],
+      ['WHOP_COMPANY_ID', whopCompanyId],
+      ['PUBLIC_SITE_URL', publicSiteUrl],
+    ]
+      .filter(([, value]) => !value)
+      .map(([name]) => name);
+
+    console.error('Missing checkout configuration:', missingVariables);
+
     return response.status(500).json({
-      error: 'Payment service is not configured',
+      error: 'Checkout service is not configured',
     });
   }
 
@@ -56,39 +67,21 @@ export default async function handler(
       error: 'Invoice number and email are required',
     });
   }
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const whopApiKey = process.env.WHOP_API_KEY;
-const whopCompanyId = process.env.WHOP_COMPANY_ID;
-const publicSiteUrl = process.env.PUBLIC_SITE_URL;
 
-const missingVariables = [
-  ['SUPABASE_URL', supabaseUrl],
-  ['SUPABASE_SERVICE_ROLE_KEY', supabaseServiceRoleKey],
-  ['WHOP_API_KEY', whopApiKey],
-  ['WHOP_COMPANY_ID', whopCompanyId],
-  ['PUBLIC_SITE_URL', publicSiteUrl],
-]
-  .filter(([, value]) => !value)
-  .map(([name]) => name);
-
-if (missingVariables.length > 0) {
-  console.error('Missing checkout configuration:', missingVariables);
-
-  return res.status(500).json({
-    error: 'Checkout service is not configured',
-    missingVariables,
-  });
-}
-
-const supabase = createClient(
-  supabaseUrl,
-  supabaseServiceRoleKey,
-);
+  const supabase = createClient(
+    supabaseUrl,
+    supabaseServiceRoleKey,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    },
+  );
 
   const { data: invoice, error: invoiceError } = await supabase
     .from('invoices')
-   .select('invoice_number, customer_email, whop_plan_id, status')
+    .select('invoice_number, customer_email, whop_plan_id, status')
     .eq('invoice_number', invoiceNumber)
     .eq('customer_email', email)
     .maybeSingle();
@@ -111,6 +104,18 @@ const supabase = createClient(
     });
   }
 
+  if (invoice.status === 'cancelled') {
+    return response.status(409).json({
+      error: 'This invoice has been cancelled',
+    });
+  }
+
+  if (!invoice.whop_plan_id) {
+    return response.status(500).json({
+      error: 'This invoice has no payment plan configured',
+    });
+  }
+
   const siteUrl = publicSiteUrl.replace(/\/$/, '');
 
   const whopResponse = await fetch(
@@ -122,7 +127,7 @@ const supabase = createClient(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        account_id: whopCompanyId,
+        company_id: whopCompanyId,
         plan_id: invoice.whop_plan_id,
         mode: 'payment',
         redirect_url: `${siteUrl}/#/pay?invoice=${encodeURIComponent(invoiceNumber)}`,
@@ -134,6 +139,12 @@ const supabase = createClient(
   );
 
   if (!whopResponse.ok) {
+    console.error(
+      'Whop checkout creation failed:',
+      whopResponse.status,
+      await whopResponse.text(),
+    );
+
     return response.status(502).json({
       error: 'Unable to create Whop checkout',
     });
@@ -157,7 +168,8 @@ const supabase = createClient(
       status: 'pending',
       updated_at: new Date().toISOString(),
     })
-    .eq('invoice_number', invoiceNumber);
+    .eq('invoice_number', invoiceNumber)
+    .eq('customer_email', email);
 
   if (updateError) {
     return response.status(500).json({
