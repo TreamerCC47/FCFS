@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { Button } from "../ui/button";
 import { ArrowRight, CheckCircle2, Activity, Users, PiggyBank, FileCheck, ChevronDown } from "lucide-react";
 
@@ -26,10 +26,7 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div 
             className="max-w-2xl"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 text-primary font-medium text-sm mb-6 relative">
@@ -70,12 +67,9 @@ export function Hero() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          <div 
             className="relative hidden lg:block"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-border p-6 pt-8 max-w-lg mx-auto">
@@ -97,11 +91,8 @@ export function Hero() {
                   { label: "Tax Saved", value: "R2.4M", icon: PiggyBank, color: "text-secondary", bg: "bg-secondary/10" },
                   { label: "Compliant", value: "99%", icon: FileCheck, color: "text-primary", bg: "bg-primary/10" }
                 ].map((stat, i) => (
-                  <motion.div 
+                  <div 
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
                     className="bg-background rounded-lg p-3 border border-border/50 flex flex-col items-center text-center shadow-sm"
                   >
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 ${stat.bg}`}>
@@ -109,7 +100,7 @@ export function Hero() {
                     </div>
                     <div className="font-bold text-foreground text-lg">{stat.value}</div>
                     <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
@@ -121,53 +112,42 @@ export function Hero() {
                       <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0"/>
                     </linearGradient>
                   </defs>
-                  <motion.path 
+                  <path 
                     d="M0,150 L0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30 L400,150 Z" 
                     fill="url(#chartGrad)"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
                   />
-                  <motion.path 
+                  <path 
                     d="M0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30" 
                     fill="none" 
                     stroke="hsl(var(--primary))" 
                     strokeWidth="3"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ delay: 0.8, duration: 1.5, ease: "easeInOut" }}
                   />
                 </svg>
               </div>
 
-              <motion.div 
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 2.2, type: "spring" }}
+              <div 
+                
                 className="absolute top-1/2 -right-8 bg-white p-3 rounded-lg shadow-xl border border-border flex items-center gap-3"
               >
                 <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                 <span className="text-sm font-bold text-foreground">Monthly Report Ready</span>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
       
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+      <div 
+       
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground"
       >
         <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
-        <motion.div 
-          animate={{ y: [0, 8, 0] }} 
-          transition={{ repeat: Infinity, duration: 1.5 }}
+        <div 
+         
         >
           <ChevronDown className="w-4 h-4" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
