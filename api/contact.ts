@@ -92,7 +92,30 @@ export default async function handler(
       },
     },
   );
+  const windowStart = new Date(
+    Date.now() - 10 * 60 * 1000,
+  ).toISOString();
 
+  const { count: recentSubmissionCount, error: rateLimitError } =
+    await supabase
+      .from('contact_submissions')
+      .select('id', { count: 'exact', head: true })
+      .eq('email', email)
+      .gte('created_at', windowStart);
+
+  if (rateLimitError) {
+    console.error('Contact rate-limit check failed:', rateLimitError);
+
+    return response.status(500).json({
+      error: 'Unable to submit your enquiry',
+    });
+  }
+
+  if ((recentSubmissionCount ?? 0) >= 3) {
+    return response.status(429).json({
+      error: 'Please wait a few minutes before sending another enquiry.',
+    });
+  }
   const { error } = await supabase
     .from('contact_submissions')
     .insert({

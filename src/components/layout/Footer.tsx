@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { X } from "lucide-react";
 
@@ -68,8 +68,8 @@ const legalDocuments: Record<
     ],
   },
   popia: {
-    label: "POPIA Compliance",
-    title: "POPIA Compliance",
+    label: "Privacy & POPIA",
+    title: "Privacy & POPIA",
     description: "Our approach to responsible processing of personal information under South Africa's POPIA framework.",
     sections: [
       {
@@ -100,6 +100,27 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const [activeDocument, setActiveDocument] = useState<LegalDocument | null>(null);
   const activeLegalDocument = activeDocument ? legalDocuments[activeDocument] : null;
+    const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!activeDocument) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveDocument(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    dialogRef.current?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      previouslyFocused?.focus();
+    };
+  }, [activeDocument]);
 
   return (
     <footer className="bg-background py-16 border-t border-border">
@@ -116,17 +137,10 @@ export function Footer() {
             <p className="text-muted-foreground text-sm max-w-sm mb-8 leading-relaxed">
               Smart. Simple. Solid Finance. South Africa's trusted accounting and compliance partner for growing small businesses.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <FaLinkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <FaFacebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-                <FaInstagram className="w-5 h-5" />
-              </a>
-            </div>
+           <p className="text-sm text-muted-foreground max-w-sm">
+  Practical accounting, tax, payroll, and business support for South African
+  small businesses.
+</p>
           </div>
 
           <div className="md:col-span-4 lg:col-span-3">
@@ -148,12 +162,10 @@ export function Footer() {
               <li><button onClick={() => document.querySelector("#contact")?.scrollIntoView()} className="hover:text-primary transition-colors">Contact Us</button></li>
             </ul>
             
-            <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">We're registered with:</h4>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1.5 bg-white border border-border rounded text-xs font-extrabold text-foreground shadow-sm">SARS</span>
-              <span className="px-3 py-1.5 bg-white border border-border rounded text-xs font-extrabold text-foreground shadow-sm">CIPC</span>
-              <span className="px-3 py-1.5 bg-white border border-border rounded text-xs font-extrabold text-foreground shadow-sm">SAICA</span>
-            </div>
+           <p className="text-xs text-muted-foreground max-w-xs leading-relaxed">
+  Business registration and professional membership details are available on
+  request.
+</p>
           </div>
 
         </div>
@@ -184,8 +196,10 @@ export function Footer() {
             if (event.target === event.currentTarget) setActiveDocument(null);
           }}
         >
-          <div
-            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-6 shadow-2xl sm:p-8"
+                    <div
+            ref={dialogRef}
+            tabIndex={-1}
+            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-6 shadow-2xl outline-none sm:p-8"
             role="dialog"
             aria-modal="true"
             aria-labelledby="legal-document-title"

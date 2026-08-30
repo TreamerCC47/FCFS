@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
-const testimonials = [
+const expectations = [
   {
-    name: "Thabo Nkosi",
-    business: "Nkosi & Associates (Pty) Ltd — Sandton",
-    quote: "Before FutureCents, I was paying penalties every quarter. Within three months they had my PAYE and VAT submissions on autopilot. I actually sleep at night now."
+    title: "Clear communication",
+    description:
+      "We explain the numbers and next steps in straightforward language, without unnecessary jargon.",
   },
   {
-    name: "Priya Govender",
-    business: "Spice & Thread Boutique — Durban",
-    quote: "I was terrified of SARS. My FutureCents advisor explained everything in plain English and handled my backlog without judgement. Worth every rand of the retainer."
+    title: "Organised financial work",
+    description:
+      "Keep your bookkeeping, tax, payroll, and supporting documents moving in the right direction.",
   },
   {
-    name: "Daniël van Wyk",
-    business: "DvW Construction CC — Stellenbosch",
-    quote: "Running a CC with 8 employees means payroll, UIF, and EMP201 every month. FutureCents just handles it all. I focus on sites, they focus on compliance."
-  }
+    title: "Support that fits your business",
+    description:
+      "Start with the services you need and build a practical support plan as your business grows.",
+  },
 ];
 
 export function Testimonials() {
@@ -24,43 +24,40 @@ export function Testimonials() {
     <section className="py-24 bg-primary/5">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Client Success</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Don't just take our word for it.</h3>
+          <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">
+            What to expect
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Practical support for the work behind your numbers.
+          </h3>
+          <p className="text-muted-foreground leading-relaxed">
+            FutureCents helps small-business owners stay informed, organised,
+            and ready for the next decision.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
-          {testimonials.map((t, i) => (
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {expectations.map((item, index) => (
             <motion.div
-              key={i}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-border relative overflow-hidden"
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 shadow-sm border border-border"
             >
-              <Quote className="absolute -top-4 -right-4 w-24 h-24 text-secondary/10 rotate-12" />
-              
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-5 h-5 fill-secondary text-secondary" />
-                ))}
-              </div>
-              
-              <p className="text-muted-foreground italic mb-8 relative z-10 leading-relaxed text-sm md:text-base">
-                "{t.quote}"
+              <CheckCircle2 className="w-8 h-8 text-primary mb-6" />
+
+              <h4 className="text-xl font-bold text-foreground mb-3">
+                {item.title}
+              </h4>
+
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                {item.description}
               </p>
-              
-              <div className="relative z-10">
-                <p className="font-bold text-foreground">{t.name}</p>
-                <p className="text-xs text-primary font-medium mt-1">{t.business}</p>
-              </div>
             </motion.div>
           ))}
         </div>
-        
-        <p className="text-center text-xs text-muted-foreground/60 max-w-xl mx-auto">
-          Results from real clients. Names used with permission.
-        </p>
       </div>
     </section>
   );

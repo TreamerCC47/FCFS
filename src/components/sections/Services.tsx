@@ -60,9 +60,19 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <div 
-                className="bg-primary-foreground/5 border border-primary-foreground/10 h-full hover:bg-primary-foreground/10 hover:border-l-4 hover:border-l-secondary transition-all rounded-xl p-6 flex flex-col cursor-pointer"
+                            <div
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedId === index}
+                aria-controls={`service-details-${index}`}
+                className="bg-primary-foreground/5 border border-primary-foreground/10 h-full hover:bg-primary-foreground/10 hover:border-l-4 hover:border-l-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-all rounded-xl p-6 flex flex-col cursor-pointer"
                 onClick={() => setExpandedId(expandedId === index ? null : index)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setExpandedId(expandedId === index ? null : index);
+                  }
+                }}
               >
                 <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-4 shrink-0">
                   <service.icon className="w-6 h-6 text-secondary" />
@@ -79,7 +89,8 @@ export function Services() {
 
                 <AnimatePresence>
                   {expandedId === index && (
-                    <motion.div 
+                    <motion.div
+                     id={`service-details-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
