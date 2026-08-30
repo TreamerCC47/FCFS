@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { X } from "lucide-react";
 
@@ -100,6 +100,27 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const [activeDocument, setActiveDocument] = useState<LegalDocument | null>(null);
   const activeLegalDocument = activeDocument ? legalDocuments[activeDocument] : null;
+    const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!activeDocument) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveDocument(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    dialogRef.current?.focus();
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      previouslyFocused?.focus();
+    };
+  }, [activeDocument]);
 
   return (
     <footer className="bg-background py-16 border-t border-border">
@@ -175,8 +196,10 @@ export function Footer() {
             if (event.target === event.currentTarget) setActiveDocument(null);
           }}
         >
-          <div
-            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-6 shadow-2xl sm:p-8"
+                    <div
+            ref={dialogRef}
+            tabIndex={-1}
+            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-6 shadow-2xl outline-none sm:p-8"
             role="dialog"
             aria-modal="true"
             aria-labelledby="legal-document-title"
