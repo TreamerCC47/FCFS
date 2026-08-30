@@ -438,11 +438,11 @@ function SupportPanel({ onClose }: { onClose: () => void }) {
 
         <div className="mt-5 grid gap-2.5">
           <a
-            href="mailto:hello@futurecents.co.za"
+            href="mailto:enquiries@futurecents.co.za"
             className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]"
           >
             <Mail size={16} />
-            hello@futurecents.co.za
+            enquiries@futurecents.co.za
             <MoveUpRight size={14} className="ml-auto" />
           </a>
 
