@@ -8,6 +8,7 @@ type ApiRequest = {
 type ApiResponse = {
   status: (statusCode: number) => ApiResponse;
   json: (body: unknown) => void;
+  setHeader: (name: string, value: string) => void;
 };
 
 function getString(value: unknown): string {
@@ -23,6 +24,9 @@ export default async function handler(
       error: 'Method not allowed',
     });
   }
+    response.setHeader('Cache-Control', 'no-store, max-age=0');
+  response.setHeader('Pragma', 'no-cache');
+  response.setHeader('X-Content-Type-Options', 'nosniff');
 
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
