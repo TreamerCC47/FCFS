@@ -626,7 +626,9 @@ const payload = await readApiPayload(result);
 
             {invoice && (
               <>
-                <InvoiceSummary invoice={invoice} />
+                <div className="print-invoice">
+  <InvoiceSummary invoice={invoice} />
+</div>
 
                 <CheckoutPanel
                   invoice={invoice}
