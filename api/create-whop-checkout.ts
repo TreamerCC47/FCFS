@@ -27,21 +27,21 @@ export default async function handler(
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const whopApiKey = process.env.WHOP_API_KEY;
-  const whopCompanyId = process.env.WHOP_COMPANY_ID;
+
   const publicSiteUrl = process.env.PUBLIC_SITE_URL;
 
   if (
     !supabaseUrl ||
     !supabaseServiceRoleKey ||
     !whopApiKey ||
-    !whopCompanyId ||
+
     !publicSiteUrl
   ) {
     const missingVariables = [
       ['SUPABASE_URL', supabaseUrl],
       ['SUPABASE_SERVICE_ROLE_KEY', supabaseServiceRoleKey],
       ['WHOP_API_KEY', whopApiKey],
-      ['WHOP_COMPANY_ID', whopCompanyId],
+     
       ['PUBLIC_SITE_URL', publicSiteUrl],
     ]
       .filter(([, value]) => !value)
@@ -81,7 +81,9 @@ export default async function handler(
 
   const { data: invoice, error: invoiceError } = await supabase
     .from('invoices')
-    .select('invoice_number, customer_email, whop_plan_id, status')
+    .select(
+  'invoice_number, customer_email, whop_plan_id, status, whop_checkout_configuration_id, whop_purchase_url',
+)
     .eq('invoice_number', invoiceNumber)
     .eq('customer_email', email)
     .maybeSingle();
@@ -107,6 +109,11 @@ export default async function handler(
   if (invoice.status === 'cancelled') {
     return response.status(409).json({
       error: 'This invoice has been cancelled',
+    });
+  }
+    if (invoice.status === 'pending' && invoice.whop_purchase_url) {
+    return response.status(200).json({
+      purchaseUrl: invoice.whop_purchase_url,
     });
   }
 
@@ -163,8 +170,9 @@ export default async function handler(
 
   const { error: updateError } = await supabase
     .from('invoices')
-    .update({
+       .update({
       whop_checkout_configuration_id: checkout.id,
+      whop_purchase_url: checkout.purchase_url,
       status: 'pending',
       updated_at: new Date().toISOString(),
     })
