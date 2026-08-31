@@ -141,7 +141,7 @@ export function Hero() {
   </div>
 </div>
 
-             className="absolute top-1/2 -right-4 -tra
+             
             </div>
           </div>
         </div>
