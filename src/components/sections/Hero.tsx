@@ -35,7 +35,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
               </span>
-              South Africa's Trusted SME Partner
+              Built for South African Small Businesses
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
@@ -43,9 +43,9 @@ export function Hero() {
               <span className="text-primary">Solid Finance.</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              We handle the compliance, you handle the business. Clear reporting, proactive tax management, and expert guidance for small business owners who value their time.
-            </p>
+           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
+  Practical accounting, tax, payroll, and business support designed to keep your finances organised, your compliance on track, and your business moving forward.
+</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Button size="lg" onClick={() => scrollToSection("#contact")} className="gap-2 text-base h-14">
@@ -77,8 +77,8 @@ export function Hero() {
               
               <div className="flex justify-between items-center mb-8">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">Financial Health</h3>
-                  <p className="text-sm text-muted-foreground">Real-time overview</p>
+                 <h3 className="text-xl font-bold text-foreground">Your Finances, Simplified</h3>
+<p className="text-sm text-muted-foreground">Clear financial support for your business</p>
                 </div>
                 <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
                   <Activity className="w-5 h-5 text-primary" />
@@ -86,11 +86,11 @@ export function Hero() {
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-8">
-                {[
-                  { label: "Active", value: "127", icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
-                  { label: "Tax Saved", value: "R2.4M", icon: PiggyBank, color: "text-secondary", bg: "bg-secondary/10" },
-                  { label: "Compliant", value: "99%", icon: FileCheck, color: "text-primary", bg: "bg-primary/10" }
-                ].map((stat, i) => (
+               {[
+  { label: "Bookkeeping", value: "Monthly", icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
+  { label: "Tax Support", value: "Expert", icon: PiggyBank, color: "text-secondary", bg: "bg-secondary/10" },
+  { label: "Compliance", value: "On Track", icon: FileCheck, color: "text-primary", bg: "bg-primary/10" }
+].map((stat, i) => (
                   <div 
                     key={i}
                     className="bg-background rounded-lg p-3 border border-border/50 flex flex-col items-center text-center shadow-sm"
@@ -130,7 +130,7 @@ export function Hero() {
                 className="absolute top-1/2 -right-8 bg-white p-3 rounded-lg shadow-xl border border-border flex items-center gap-3"
               >
                 <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="text-sm font-bold text-foreground">Monthly Report Ready</span>
+                <span className="text-sm font-bold text-foreground">Your finances, under control</span>
               </div>
             </div>
           </div>
