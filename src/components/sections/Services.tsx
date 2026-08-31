@@ -43,11 +43,17 @@ export function Services() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-secondary font-semibold tracking-wider uppercase text-sm mb-3">Our Services</h2>
-            <h3 className="text-3xl md:text-5xl font-bold mb-4">Everything you need. <br />Nothing you don't.</h3>
-            <p className="text-primary-foreground/80 text-lg">
-              Comprehensive financial support tailored to the exact stage of your business.
-            </p>
+            <h2 className="text-secondary font-semibold tracking-wider uppercase text-sm mb-3">
+  Our Services
+</h2>
+
+<h3 className="text-3xl md:text-5xl font-bold mb-4">
+  Financial support that works for your business.
+</h3>
+
+<p className="text-primary-foreground/80 text-lg max-w-xl">
+  From bookkeeping and tax compliance to payroll and business advisory, we take care of the financial work so you can focus on running your business.
+</p>
           </div>
         </div>
 
