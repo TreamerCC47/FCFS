@@ -57,15 +57,21 @@ export function Hero() {
             </div>
 
             <div className="mb-10">
-              <p className="text-sm font-medium text-muted-foreground mb-4">Trusted by SA businesses in:</p>
-              <div className="flex flex-wrap gap-2">
-                {["Retail", "Construction", "Tech", "Creative"].map((industry) => (
-                  <span key={industry} className="px-3 py-1 bg-white border border-border rounded-full text-xs font-semibold text-foreground shadow-sm">
-                    {industry}
-                  </span>
-                ))}
-              </div>
-            </div>
+  <p className="text-sm font-medium text-muted-foreground mb-4">
+    Built to support businesses in:
+  </p>
+
+  <div className="flex flex-wrap gap-2">
+    {["Retail", "Construction", "Professional Services", "Creative", "Technology"].map((industry) => (
+      <span
+        key={industry}
+        className="px-3 py-1 bg-white border border-border rounded-full text-xs font-semibold text-foreground shadow-sm"
+      >
+        {industry}
+      </span>
+    ))}
+  </div>
+</div>
 
           </div>
 
