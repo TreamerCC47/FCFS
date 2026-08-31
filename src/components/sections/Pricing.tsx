@@ -17,11 +17,11 @@ const checkoutLinks = {
 
 const packages = [
   {
-    name: "Tax Lite",
+    name: "Tax Support",
     description:
       "Essential tax support for individuals, freelancers, and small businesses.",
     price: 1500,
-    billing: "month",
+    billing: "per month",
     checkoutUrl: checkoutLinks.taxLite,
     features: [
       "SARS due-date reminders",
@@ -31,11 +31,11 @@ const packages = [
     ],
   },
   {
-    name: "Bookkeeping Lite",
+    name: "Bookkeeping Support",
     description:
       "Practical monthly bookkeeping for businesses that need clearer financial records.",
     price: 2500,
-    billing: "month",
+    billing: "per month",
     checkoutUrl: checkoutLinks.bookkeepingLite,
     features: [
       "Four hours of bookkeeping",
@@ -50,7 +50,7 @@ const packages = [
     description:
       "A complete outsourced finance service for growing small and medium businesses.",
     price: 5500,
-    billing: "month",
+    billing: "per month",
     checkoutUrl: checkoutLinks.fullSmeSupport,
     features: [
       "Full bookkeeping up to 50 transactions",
@@ -163,17 +163,22 @@ export function Pricing() {
       <div className="container mx-auto px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            FutureCents packages
+            Simple, transparent fees
           </p>
 
           <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
-            Choose the support your business needs.
+            Practical support, with clear monthly pricing.
           </h2>
 
           <p className="text-lg leading-8 text-muted-foreground">
-            Select a monthly service package and pay securely online through
-            Whop. If you need a tailored service, request a quote from our team.
+           Start with the service you need now, or choose ongoing support for the
+financial work your business needs every month. Every engagement is
+explained clearly before work begins.
           </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+  Prices are shown in South African rand. Final scope and any applicable VAT
+  will be confirmed before work begins.
+</p>
         </div>
 
         <div className="mx-auto grid max-w-6xl gap-7 lg:grid-cols-3">
@@ -200,8 +205,8 @@ export function Pricing() {
                     {formatZar(pkg.price)}
                   </span>
                   <span className="pb-1 text-sm font-semibold text-muted-foreground">
-                    /{pkg.billing}
-                  </span>
+  {pkg.billing}
+</span>
                 </div>
 
                 <div className="mt-7 border-t border-border pt-6">
@@ -227,12 +232,12 @@ export function Pricing() {
                 href={pkg.checkoutUrl}
                 className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Get Access
+                Choose this service
                 <ArrowRight className="h-4 w-4" />
               </a>
 
               <p className="mt-3 text-center text-xs text-muted-foreground">
-                Secure checkout hosted by Whop
+                Secure payment through Whop
               </p>
             </motion.article>
           ))}
@@ -263,15 +268,16 @@ export function Pricing() {
         <div className="mx-auto mt-24 max-w-6xl border-t border-border pt-16">
   <div className="mb-10 text-center">
     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-      Fixed-price services
+      Once-off services
     </p>
 
     <h3 className="text-3xl font-extrabold text-foreground">
-      Get help with a specific finance task.
+      Need help with one specific task?
     </h3>
 
     <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-      Choose a once-off service and pay securely through Whop.
+      Get focused help with a registration, certificate, compliance task, or
+other once-off finance requirement.
     </p>
   </div>
 
@@ -307,7 +313,7 @@ export function Pricing() {
           rel="noopener noreferrer"
           className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
         >
-          Get In Touch
+          Choose this service
           <ArrowRight className="h-4 w-4" />
         </a>
       </article>
@@ -318,16 +324,16 @@ export function Pricing() {
         <div className="mx-auto mt-24 max-w-5xl border-t border-border pt-16">
   <div className="mb-10 text-center">
     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-       Tailored services
+       Tailored support
     </p>
 
     <h3 className="text-3xl font-extrabold text-foreground">
-      Need something more specific?
+      Need a tailored arrangement?
     </h3>
 
     <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-      Request a quote for services that depend on your company size,
-      records, employee count, or filing requirements.
+     Some services depend on your records, company size, employee count, or filing
+requirements. Tell us what you need and we will prepare a clear quotation.
     </p>
   </div>
 

@@ -4,35 +4,60 @@ import { BookOpen, Calculator, Users, FileText, Lightbulb, ChevronDown, ChevronU
 
 const services = [
   {
-    icon: BookOpen,
-    title: "Monthly Bookkeeping",
-    description: "Accurate, up-to-date recording of all financial transactions. We reconcile your accounts so you always know your cash position.",
-    includes: ["Bank & credit card reconciliation", "Debtors & creditors matching", "Monthly trial balance", "Receipt & invoice categorization"]
-  },
+  icon: BookOpen,
+  title: "Monthly Bookkeeping",
+  description: "Keep your business finances organised and up to date with accurate monthly bookkeeping and reconciliations.",
+  includes: [
+    "Bank & credit card reconciliation",
+    "Income & expense recording",
+    "Debtors & creditors tracking",
+    "Monthly financial reports"
+  ]
+},
+{
+  icon: Calculator,
+  title: "Tax Compliance",
+  description: "Stay on top of your tax obligations with practical support for submissions, calculations, and SARS compliance.",
+  includes: [
+    "VAT calculations & submissions",
+    "Provisional tax calculations",
+    "Income tax return preparation",
+    "SARS compliance support"
+  ]
+},
   {
-    icon: Calculator,
-    title: "Tax Compliance",
-    description: "VAT, PAYE, Provisional Tax, and Annual Income Tax submissions handled efficiently to keep you in SARS's good books.",
-    includes: ["Bi-monthly VAT calculations", "Provisional tax estimates", "Dispute resolution with SARS", "Tax clearance certificates"]
-  },
-  {
-    icon: Users,
-    title: "Payroll Administration",
-    description: "Payslips, leave tracking, UIF, and EMP201 submissions managed securely and accurately every month.",
-    includes: ["Monthly payslip generation", "EMP201 & EMP501 recon", "UIF declarations via uFiling", "Leave balance tracking"]
-  },
-  {
-    icon: FileText,
-    title: "Annual Financial Statements",
-    description: "Preparation of formal financial statements required for compliance, funding applications, or business valuation.",
-    includes: ["IFRS for SMEs compliant", "Director's report compilation", "Accounting officer's letter", "CIPC annual return filing"]
-  },
-  {
-    icon: Lightbulb,
-    title: "Business Advisory",
-    description: "Strategic insights, cashflow forecasting, and scenario planning to help you make confident decisions about growth.",
-    includes: ["Quarterly strategy sessions", "Cashflow forecasting models", "Budget vs actual analysis", "Margin & profitability reviews"]
-  }
+  icon: Users,
+  title: "Payroll Administration",
+  description: "Reliable monthly payroll support to help you pay your employees accurately and keep your payroll records organised.",
+  includes: [
+    "Monthly payslip preparation",
+    "EMP201 & EMP501 support",
+    "UIF declaration support",
+    "Leave & payroll record tracking"
+  ]
+},
+{
+  icon: FileText,
+  title: "Annual Financial Statements",
+  description: "Clear, professionally prepared financial statements to help you understand your business and meet your annual reporting requirements.",
+  includes: [
+    "Annual financial statement preparation",
+    "Income statement & balance sheet",
+    "Financial position & performance review",
+    "Support for compliance & funding needs"
+  ]
+},
+{
+  icon: Lightbulb,
+  title: "Business Advisory",
+  description: "Practical financial guidance to help you understand your numbers, plan ahead, and make better business decisions.",
+  includes: [
+    "Cashflow forecasting",
+    "Budget vs actual analysis",
+    "Profitability & margin reviews",
+    "Financial planning & business guidance"
+  ]
+}
 ];
 
 export function Services() {
@@ -43,11 +68,17 @@ export function Services() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-secondary font-semibold tracking-wider uppercase text-sm mb-3">Our Services</h2>
-            <h3 className="text-3xl md:text-5xl font-bold mb-4">Everything you need. <br />Nothing you don't.</h3>
-            <p className="text-primary-foreground/80 text-lg">
-              Comprehensive financial support tailored to the exact stage of your business.
-            </p>
+            <h2 className="text-secondary font-semibold tracking-wider uppercase text-sm mb-3">
+  Our Services
+</h2>
+
+<h3 className="text-3xl md:text-5xl font-bold mb-4">
+  Financial support that works for your business.
+</h3>
+
+<p className="text-primary-foreground/80 text-lg max-w-xl">
+  From bookkeeping and tax compliance to payroll and business advisory, we take care of the financial work so you can focus on running your business.
+</p>
           </div>
         </div>
 

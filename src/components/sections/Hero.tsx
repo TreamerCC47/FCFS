@@ -1,153 +1,172 @@
-
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react";
 import { Button } from "../ui/button";
-import { ArrowRight, CheckCircle2, Activity, Users, PiggyBank, FileCheck, ChevronDown } from "lucide-react";
 
 export function Hero() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
+
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const services = [
+    "Monthly bookkeeping",
+    "Tax and SARS support",
+    "Payroll and compliance",
+    "Clear monthly reporting",
+  ];
+
   return (
-    <section className="relative min-h-[100dvh] flex items-center pt-24 pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-background pointer-events-none" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-bl-[100px] pointer-events-none" />
-      
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-        style={{
-          backgroundImage: `linear-gradient(to right, #14523e 1px, transparent 1px), linear-gradient(to bottom, #14523e 1px, transparent 1px)`,
-          backgroundSize: '4rem 4rem'
-        }}
-      />
+    <section className="relative overflow-hidden bg-background pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-0 top-0 h-[620px] w-[52%] rounded-bl-[160px] bg-primary/[0.045]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          <div 
-            className="max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 text-primary font-medium text-sm mb-6 relative">
-              <div className="absolute inset-0 rounded-full border border-secondary animate-ping opacity-50"></div>
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-              </span>
-              Built for South African Small Businesses
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #14523e 1px, transparent 1px), linear-gradient(to bottom, #14523e 1px, transparent 1px)",
+            backgroundSize: "4rem 4rem",
+          }}
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <div className="max-w-2xl">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.06] px-3.5 py-2 text-sm font-semibold text-primary">
+              <span className="h-2 w-2 rounded-full bg-secondary" />
+              Accounting support for South African Small Businesses and Individuals
             </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
-              Smart. Simple. <br />
-              <span className="text-primary">Solid Finance.</span>
+
+            <h1 className="mb-7 max-w-2xl text-5xl font-extrabold leading-[1.06] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Clear numbers.
+              <br />
+              <span className="text-primary">Confident decisions.</span>
             </h1>
-            
-           <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-  Practical accounting, tax, payroll, and business support designed to keep your finances organised, your compliance on track, and your business moving forward.
-</p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button size="lg" onClick={() => scrollToSection("#contact")} className="gap-2 text-base h-14">
-                Get a free consultation <ArrowRight className="w-5 h-5" />
+            <p className="mb-9 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
+              FutureCents helps owner-managed businesses stay organised with
+              practical bookkeeping, tax, payroll, and compliance support.
+              Clear advice, dependable follow-through, and no unnecessary
+              jargon.
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="h-14 gap-2 bg-[#25D366] px-7 text-base text-white shadow-sm hover:bg-[#20b858]"
+              >
+                <a
+                  href="https://wa.me/27816733268"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Chat with us on WhatsApp
+                  <MessageSquare className="h-5 w-5" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection("#services")} className="h-14 text-base bg-background/50 backdrop-blur border-border hover:bg-background">
-                View Services
+
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToSection("#pricing")}
+                className="h-14 gap-2 border-border bg-background px-7 text-base"
+              >
+                View pricing
+                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
 
-            <div className="mb-10">
-              <p className="text-sm font-medium text-muted-foreground mb-4">Trusted by SA businesses in:</p>
-              <div className="flex flex-wrap gap-2">
-                {["Retail", "Construction", "Tech", "Creative"].map((industry) => (
-                  <span key={industry} className="px-3 py-1 bg-white border border-border rounded-full text-xs font-semibold text-foreground shadow-sm">
-                    {industry}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-muted-foreground">
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-primary" />
+                South African SME focus
+              </span>
 
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-primary" />
+                Remote across South Africa
+              </span>
+            </div>
           </div>
 
-          <div 
-            className="relative hidden lg:block"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-border p-6 pt-8 max-w-lg mx-auto">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary"></div>
-              
-              <div className="flex justify-between items-center mb-8">
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="absolute -right-5 -top-5 h-24 w-24 rounded-full bg-secondary/20 blur-2xl" />
+            <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
+
+            <div className="relative rounded-3xl border border-border bg-white p-7 shadow-xl sm:p-9">
+              <div className="mb-8 flex items-start justify-between gap-4">
                 <div>
-                 <h3 className="text-xl font-bold text-foreground">Your Finances, Simplified</h3>
-<p className="text-sm text-muted-foreground">Clear financial support for your business</p>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                    Your finance partner
+                  </p>
+
+                  <h2 className="text-2xl font-bold leading-tight text-foreground">
+                    The numbers,
+                    <br />
+                    taken care of.
+                  </h2>
                 </div>
-                <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Activity className="w-5 h-5 text-primary" />
+
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <ShieldCheck className="h-6 w-6 text-primary" />
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-8">
-               {[
-  { label: "Bookkeeping", value: "Monthly", icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
-  { label: "Tax Support", value: "Expert", icon: PiggyBank, color: "text-secondary", bg: "bg-secondary/10" },
-  { label: "Compliance", value: "On Track", icon: FileCheck, color: "text-primary", bg: "bg-primary/10" }
-].map((stat, i) => (
-                  <div 
-                    key={i}
-                    className="bg-background rounded-lg p-3 border border-border/50 flex flex-col items-center text-center shadow-sm"
-                  >
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 ${stat.bg}`}>
-                      <stat.icon className={`w-4 h-4 ${stat.color}`} />
+              <div className="space-y-4 border-t border-border pt-6">
+                {services.map((service) => (
+                  <div key={service} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/20">
+                      <Check className="h-3.5 w-3.5 text-primary" />
                     </div>
-                    <div className="font-bold text-foreground text-lg">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground font-medium">{stat.label}</div>
+
+                    <span className="text-sm font-semibold text-foreground">
+                      {service}
+                    </span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-background rounded-xl p-4 border border-border/50 relative h-48 flex items-end">
-                <svg className="w-full h-full absolute inset-0" viewBox="0 0 400 150" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2"/>
-                      <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path 
-                    d="M0,150 L0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30 L400,150 Z" 
-                    fill="url(#chartGrad)"
-                  />
-                  <path 
-                    d="M0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30" 
-                    fill="none" 
-                    stroke="hsl(var(--primary))" 
-                    strokeWidth="3"
-                  />
-                </svg>
-              </div>
+              <div className="mt-8 rounded-2xl bg-background p-5">
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Built for businesses that want reliable financial support
+                  without the cost or formality of a large corporate firm.
+                </p>
 
-              <div 
-                
-                className="absolute top-1/2 -right-8 bg-white p-3 rounded-lg shadow-xl border border-border flex items-center gap-3"
-              >
-                <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="text-sm font-bold text-foreground">Your finances, under control</span>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("#contact")}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-primary/75"
+                >
+                  Start a conversation
+                  <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      <div 
-       
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground"
+
+      <button
+        type="button"
+        onClick={() => scrollToSection("#services")}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-primary sm:flex"
+        aria-label="Scroll to services"
       >
-        <span className="text-xs uppercase tracking-widest font-semibold">Scroll</span>
-        <div 
-         
-        >
-          <ChevronDown className="w-4 h-4" />
-        </div>
-      </div>
+        <span className="text-xs font-semibold uppercase tracking-[0.2em]">
+          Explore
+        </span>
+        <ChevronDown className="h-4 w-4" />
+      </button>
     </section>
   );
 }
