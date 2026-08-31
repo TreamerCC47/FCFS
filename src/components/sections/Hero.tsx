@@ -104,26 +104,36 @@ export function Hero() {
                 ))}
               </div>
 
-              <div className="bg-background rounded-xl p-4 border border-border/50 relative h-48 flex items-end">
-                <svg className="w-full h-full absolute inset-0" viewBox="0 0 400 150" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2"/>
-                      <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path 
-                    d="M0,150 L0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30 L400,150 Z" 
-                    fill="url(#chartGrad)"
-                  />
-                  <path 
-                    d="M0,100 C50,100 80,120 120,90 C160,60 200,80 250,50 C300,20 350,60 400,30" 
-                    fill="none" 
-                    stroke="hsl(var(--primary))" 
-                    strokeWidth="3"
-                  />
-                </svg>
-              </div>
+              <div className="bg-background rounded-xl p-4 border border-border/50 relative h-48">
+  <div className="flex items-center justify-between mb-3">
+    <div>
+      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+        Financial Progress
+      </p>
+      <p className="text-sm font-bold text-foreground">
+        Stay organised. Stay compliant.
+      </p>
+    </div>
+    <div className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+      On Track
+    </div>
+  </div>
+
+  <div className="absolute left-4 right-4 bottom-5 h-20 flex items-end gap-2">
+    {[35, 48, 42, 62, 55, 72, 82, 92].map((height, i) => (
+      <div
+        key={i}
+        className="flex-1 rounded-t-md bg-primary/20 relative overflow-hidden"
+        style={{ height: `${height}%` }}
+      >
+        <div
+          className="absolute bottom-0 left-0 right-0 bg-primary rounded-t-md"
+          style={{ height: `${Math.min(height + 8, 100)}%` }}
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
               <div 
                 
