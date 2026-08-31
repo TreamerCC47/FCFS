@@ -17,11 +17,11 @@ const checkoutLinks = {
 
 const packages = [
   {
-    name: "Tax Support",
+    name: "Tax Lite",
     description:
       "Essential tax support for individuals, freelancers, and small businesses.",
     price: 1500,
-    billing: "per month",
+    billing: "month",
     checkoutUrl: checkoutLinks.taxLite,
     features: [
       "SARS due-date reminders",
@@ -31,11 +31,11 @@ const packages = [
     ],
   },
   {
-    name: "Bookkeeping Support",
+    name: "Bookkeeping Lite",
     description:
       "Practical monthly bookkeeping for businesses that need clearer financial records.",
     price: 2500,
-    billing: "per month",
+    billing: "month",
     checkoutUrl: checkoutLinks.bookkeepingLite,
     features: [
       "Four hours of bookkeeping",
@@ -50,7 +50,7 @@ const packages = [
     description:
       "A complete outsourced finance service for growing small and medium businesses.",
     price: 5500,
-    billing: "per month",
+    billing: "month",
     checkoutUrl: checkoutLinks.fullSmeSupport,
     features: [
       "Full bookkeeping up to 50 transactions",
@@ -163,17 +163,16 @@ export function Pricing() {
       <div className="container mx-auto px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Simple, transparent fees
+            FutureCents packages
           </p>
 
           <h2 className="mb-5 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
-            Practical support, with clear monthly pricing.
+            Choose the support your business needs.
           </h2>
 
           <p className="text-lg leading-8 text-muted-foreground">
-           Start with the service you need now, or choose ongoing support for the
-financial work your business needs every month. Every engagement is
-explained clearly before work begins.
+            Select a monthly service package and pay securely online through
+            Whop. If you need a tailored service, request a quote from our team.
           </p>
         </div>
 
@@ -201,6 +200,8 @@ explained clearly before work begins.
                     {formatZar(pkg.price)}
                   </span>
                   <span className="pb-1 text-sm font-semibold text-muted-foreground">
+                    /{pkg.billing}
+                  </span>
                 </div>
 
                 <div className="mt-7 border-t border-border pt-6">
