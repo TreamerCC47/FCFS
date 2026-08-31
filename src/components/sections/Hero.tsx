@@ -135,13 +135,14 @@ export function Hero() {
   </div>
 </div>
 
-              <div 
-                
-                className="absolute top-1/2 -right-8 bg-white p-3 rounded-lg shadow-xl border border-border flex items-center gap-3"
-              >
-                <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="text-sm font-bold text-foreground">Your finances, under control</span>
-              </div>
+             <div 
+  className="absolute top-1/2 -right-4 -translate-y-1/2 bg-white p-3 rounded-lg shadow-xl border border-border flex items-center gap-3 max-w-[240px]"
+>
+  <div className="w-2 h-2 rounded-full bg-secondary animate-pulse flex-shrink-0" />
+  <span className="text-sm font-bold text-foreground leading-tight">
+    Your finances, under control
+  </span>
+</div>
             </div>
           </div>
         </div>
