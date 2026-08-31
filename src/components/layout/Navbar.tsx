@@ -1,19 +1,26 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { Menu, X, ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, Menu, MessageSquare, X } from "lucide-react";
 import { Button } from "../ui/button";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
-    useEffect(() => {
+
+  useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
@@ -31,27 +38,39 @@ export function Navbar() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(`#${entry.target.id}`);
-        }
-      });
-    }, { threshold: 0.2, rootMargin: "-10% 0px -50% 0px" });
 
-    sections.forEach((s) => observer.observe(s));
-    return () => sections.forEach((s) => observer.unobserve(s));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "-10% 0px -50% 0px",
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   const navLinks = [
     { name: "Services", href: "#services" },
-    { name: "Why Us", href: "#why-us" },
+    { name: "Why FutureCents", href: "#why-us" },
     { name: "Pricing", href: "#pricing" },
   ];
 
   const scrollToSection = (href: string) => {
     setMobileMenuOpen(false);
+
     const element = document.querySelector(href);
+
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -59,106 +78,161 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      aria-label="Primary navigation"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-6"
+          ? "border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md"
+          : "bg-transparent py-5 sm:py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg leading-none">F</span>
-            </div>
-            <span className="font-bold text-xl tracking-tight text-primary">FutureCents</span>
-          </div>
+      <div className="container mx-auto flex items-center justify-between px-6">
+        <Link
+          href="/"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex items-center gap-3"
+        >
+          <span className="brand-mark" aria-hidden="true">
+            <span>fc</span>
+          </span>
+
+          <span className="flex flex-col">
+            <span className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">
+              FutureCents
+            </span>
+
+            <span className="hidden text-[0.58rem] font-bold uppercase tracking-[0.16em] text-muted-foreground sm:block">
+              Accounting · Tax · Compliance
+            </span>
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
+          <div className="flex items-center gap-7">
             {navLinks.map((link) => (
               <button
                 key={link.name}
+                type="button"
                 onClick={() => scrollToSection(link.href)}
-                className={`text-sm font-semibold transition-all relative py-1 ${
-                  activeSection === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                className={`relative py-2 text-sm font-semibold transition-colors ${
+                  activeSection === link.href
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.name}
+
                 {activeSection === link.href && (
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary rounded-full" />
+                  <span className="absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-secondary" />
                 )}
               </button>
             ))}
-                        <Link
+
+            <Link
               href="/pay"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+              className="py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
-              Pay Invoice
+              Pay an invoice
             </Link>
           </div>
+
           <div className="flex items-center gap-3">
-            <Button asChild variant="outline" className="gap-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366]/10 hover:text-[#25D366]">
-              <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer">
-                <MessageSquare className="w-4 h-4" /> WhatsApp
+            <Button
+              asChild
+              variant="outline"
+              className="gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
+            >
+              <a
+                href="https://wa.me/27816733268"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageSquare className="h-4 w-4" />
+                WhatsApp
               </a>
             </Button>
-            <Button onClick={() => scrollToSection("#contact")} className="gap-2">
-              Get Started <ArrowRight className="w-4 h-4" />
+
+            <Button
+              type="button"
+              onClick={() => scrollToSection("#contact")}
+              className="gap-2"
+            >
+              Start a conversation
+              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        {/* Mobile Toggle */}
-             <button
+        <button
           type="button"
-          className="md:hidden text-foreground"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="rounded-md p-2 text-foreground transition-colors hover:bg-primary/10 md:hidden"
+          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
-          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
         >
-          {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          {mobileMenuOpen ? (
+            <X aria-hidden="true" />
+          ) : (
+            <Menu aria-hidden="true" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Nav */}
       {mobileMenuOpen && (
-       <div
-  id="mobile-navigation"
-  role="region"
-  aria-label="Mobile navigation"
-  className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border shadow-lg py-4 px-6 flex flex-col gap-4"
->
+        <div
+          id="mobile-navigation"
+          className="absolute left-0 top-full flex w-full flex-col gap-3 border-b border-border bg-background px-6 py-5 shadow-lg md:hidden"
+        >
           {navLinks.map((link) => (
             <button
               key={link.name}
+              type="button"
               onClick={() => scrollToSection(link.href)}
-              className={`text-left py-2 text-lg font-medium ${
-                activeSection === link.href ? "text-primary border-l-2 border-secondary pl-3" : "text-foreground"
+              className={`border-l-2 py-2 pl-3 text-left text-base font-semibold ${
+                activeSection === link.href
+                  ? "border-secondary text-primary"
+                  : "border-transparent text-foreground"
               }`}
             >
               {link.name}
             </button>
           ))}
-                    <Link
+
+          <Link
             href="/pay"
             onClick={() => setMobileMenuOpen(false)}
-            className="py-2 text-left text-lg font-medium text-foreground"
+            className="border-l-2 border-transparent py-2 pl-3 text-base font-semibold text-foreground"
           >
-            Pay Invoice
+            Pay an invoice
           </Link>
-          <Button asChild variant="outline" className="w-full mt-2 border-[#25D366] text-[#25D366]">
-            <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer">
-              <MessageSquare className="w-4 h-4 mr-2" /> WhatsApp Us
-            </a>
-          </Button>
-          <Button onClick={() => scrollToSection("#contact")} className="w-full">
-            Get Started
-          </Button>
+
+          <div className="mt-2 grid gap-3 border-t border-border pt-4">
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
+            >
+              <a
+                href="https://wa.me/27816733268"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <MessageSquare className="h-4 w-4" />
+                Chat on WhatsApp
+              </a>
+            </Button>
+
+            <Button
+              type="button"
+              onClick={() => scrollToSection("#contact")}
+              className="h-12 w-full gap-2"
+            >
+              Start a conversation
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       )}
     </nav>
