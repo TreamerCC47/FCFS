@@ -17,7 +17,7 @@ export function Industries() {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-12">We serve businesses across every industry</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-12">Support for the financial stage your business is entering</h3>
         
         <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto mb-10">
           {industries.map((ind, i) => (

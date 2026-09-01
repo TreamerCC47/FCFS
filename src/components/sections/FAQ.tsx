@@ -5,8 +5,8 @@ const faqs = [
   { q: "What documents do I need to get started?", a: "Typically your company registration documents, recent bank statements (3 months), and any existing SARS correspondence. We'll send you a full checklist after your onboarding call." },
   { q: "Can you help if my books are behind?", a: "Yes. Backlog catch-ups are one of our most requested once-off services. We'll quote you based on how far behind you are and get you compliant before taking on a monthly retainer." },
   { q: "How does the monthly retainer billing work?", a: "Retainers are invoiced on the 1st of each month in advance via EFT or debit order. Once-off services require a 50% deposit before we begin." },
-  { q: "What happens if SARS contacts me directly?", a: "All SARS correspondence should be forwarded to us immediately. We handle queries, audits, and reviews on your behalf as part of your retainer." },
-  { q: "Is my financial information secure?", a: "Absolutely. We use secure, encrypted portals for all document exchange and are fully compliant with the Protection of Personal Information Act (POPIA)." },
+  { q: "What happens if SARS contacts me directly?", a: "All SARS correspondence should be forwarded to us immediately." },
+  { q: "Is my financial information secure?", a: "We take reasonable technical and organisational steps to protect the personal information shared with us." },
   { q: "Do you work with businesses outside South Africa?", a: "We primarily serve South African-registered entities. If you have foreign operations or offshore income, contact us and we'll assess whether we can assist." },
   { q: "How quickly can you start?", a: "Typically within 48 hours of signing our engagement letter. We'll set up your client portal, collect your documents, and have your first monthly cycle covered." },
 ];
