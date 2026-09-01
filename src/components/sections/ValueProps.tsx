@@ -4,27 +4,31 @@ import { ShieldCheck, LineChart, MessageCircle, PiggyBank } from "lucide-react";
 const pillars = [
   {
     icon: ShieldCheck,
-    title: "Proactive Compliance",
-    description: "No more last-minute scrambles. We stay ahead of SARS deadlines so you never face penalties.",
-    proof: "Avg 14 days ahead of SARS deadlines"
+    title: "Stay on top of compliance",
+    description:
+      "We help you understand what needs to be done, when it needs to be done, and what information is required.",
+    takeaway: "Clear deadlines and next steps",
   },
   {
     icon: LineChart,
-    title: "Clear Reporting",
-    description: "Financial statements shouldn't need a translator. We provide insights in plain language you can actually use.",
-    proof: "Monthly summaries in under 3 minutes"
+    title: "Understand your numbers",
+    description:
+      "Your financial reports should help you make decisions. We explain the important points without unnecessary jargon.",
+    takeaway: "Reports you can actually use",
   },
   {
     icon: MessageCircle,
-    title: "WhatsApp Support",
-    description: "Direct, accessible communication. Message us when you have a question, get answers when you need them.",
-    proof: "Typical response in < 2 hours"
+    title: "Speak to a real person",
+    description:
+      "When a deadline or financial question needs attention, you can reach us directly through WhatsApp.",
+    takeaway: "Practical support when you need it",
   },
   {
     icon: PiggyBank,
-    title: "SME-Focused Value",
-    description: "Enterprise-grade financial expertise priced and structured specifically for South African small businesses.",
-    proof: "Up to 30% savings vs traditional firms"
+    title: "Support that grows with you",
+    description:
+      "Start with the work your business needs today and build a more complete support structure as you grow.",
+    takeaway: "Flexible support for growing businesses",
   }
 ];
 
@@ -62,7 +66,7 @@ export function ValueProps() {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Finance doesn't have to be intimidating.</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                We built FutureCents to be the partner we wished we had—approachable, organised, and deeply invested in your business's stability.
+                FutureCents is built for owner-managed businesses that want their financial work handled carefully, explained clearly, and shaped around the way they operate.
               </p>
             </div>
           </div>
@@ -70,7 +74,7 @@ export function ValueProps() {
           <div>
             <div className="mb-12 lg:hidden text-center">
               <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Why FutureCents</h2>
-              <h3 className="text-3xl font-bold text-foreground mb-4">Finance doesn't have to be intimidating.</h3>
+              <h3 className="text-3xl font-bold text-foreground mb-4">A finance partner who keeps things clear.</h3>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
@@ -93,7 +97,7 @@ export function ValueProps() {
                     {pillar.description}
                   </p>
                   <p className="text-secondary font-semibold italic text-xs relative z-10 bg-secondary/10 inline-block px-2 py-1 rounded">
-                    "{pillar.proof}"
+                    {pillar.takeaway}
                   </p>
                 </motion.div>
               ))}

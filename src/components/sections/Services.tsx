@@ -73,11 +73,12 @@ export function Services() {
 </h2>
 
 <h3 className="text-3xl md:text-5xl font-bold mb-4">
-  Financial support that works for your business.
+  The financial work behind a healthy business.
 </h3>
 
 <p className="text-primary-foreground/80 text-lg max-w-xl">
-  From bookkeeping and tax compliance to payroll and business advisory, we take care of the financial work so you can focus on running your business.
+ From keeping your records organised to helping you plan your next move, we
+support the financial work that keeps your business moving.
 </p>
           </div>
         </div>
@@ -114,7 +115,7 @@ export function Services() {
                 </p>
                 
                 <div className="mt-auto pt-4 border-t border-primary-foreground/10 flex items-center justify-between text-secondary text-sm font-semibold">
-                  <span>What's included</span>
+                  <span>What this usually covers</span>
                   {expandedId === index ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </div>
 
@@ -150,8 +151,9 @@ export function Services() {
             className="h-full"
           >
             <div className="bg-secondary border-none h-full flex flex-col justify-center items-center text-center p-8 rounded-xl shadow-xl">
-              <h4 className="text-2xl font-bold text-secondary-foreground mb-2">Need a custom solution?</h4>
-              <p className="text-secondary-foreground/80 mb-6 text-sm font-medium">We build packages based on your exact operational needs.</p>
+              <h4 className="text-2xl font-bold text-secondary-foreground mb-2">Not sure what you need?</h4>
+              <p className="text-secondary-foreground/80 mb-6 text-sm font-medium">Tell us where you need help and we’ll shape the right level of support around
+your business.</p>
               <button 
                 onClick={() => {
                   document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
@@ -171,17 +173,46 @@ export function Services() {
           </div>
           <h4 className="text-xl font-bold text-primary-foreground mb-8 flex items-center gap-3 relative z-10">
             <CalendarDays className="w-6 h-6 text-secondary" />
-            Key SARS Compliance Dates
+            Typical compliance cycles
           </h4>
+          <p className="relative z-10 -mt-5 mb-8 max-w-2xl text-sm leading-relaxed text-primary-foreground/65">
+  Filing requirements and deadlines depend on your business and tax category.
+  We help you understand what applies and keep the relevant work on track.
+</p>
           
           <div className="flex gap-4 pb-4 overflow-x-auto snap-x scrollbar-hide relative z-10">
             {[
-              { m: "Every Month", d: "7th", t: "PAYE / UIF", desc: "EMP201 Submission" },
-              { m: "Every Month", d: "25th", t: "VAT", desc: "eFiling Submission" },
-              { m: "February", d: "28th", t: "Prov Tax", desc: "2nd Period Submission" },
-              { m: "May", d: "31st", t: "EMP501", desc: "Annual Recon Due" },
-              { m: "August", d: "31st", t: "Prov Tax", desc: "1st Period Submission" },
-            ].map((ev, i) => (
+  {
+    m: "Every month",
+    d: "01",
+    t: "Bookkeeping",
+    desc: "Keep your records current",
+  },
+  {
+    m: "Every month",
+    d: "PAYE",
+    t: "Payroll support",
+    desc: "PAYE and UIF administration",
+  },
+  {
+    m: "Every two months",
+    d: "VAT",
+    t: "VAT support",
+    desc: "Calculations and submissions",
+  },
+  {
+    m: "Twice yearly",
+    d: "PROV",
+    t: "Provisional tax",
+    desc: "Planning and submission support",
+  },
+  {
+    m: "Annually",
+    d: "YEAR",
+    t: "Annual compliance",
+    desc: "Year-end tax and reporting work",
+  },
+].map((ev, i) => (
               <div key={i} className="min-w-[200px] bg-primary-foreground/10 rounded-xl p-5 snap-start border border-primary-foreground/5 shrink-0 hover:bg-primary-foreground/20 transition-colors">
                 <div className="text-secondary font-bold text-xs uppercase tracking-wider mb-2">{ev.m}</div>
                 <div className="text-4xl font-extrabold text-primary-foreground mb-3">{ev.d}</div>
