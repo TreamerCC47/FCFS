@@ -78,13 +78,18 @@ const {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-xl"></div>
               
               <div className="relative z-10">
-              <p className="text-muted-foreground">
-  Tell us which service you need and a little about your business. We’ll
-  review your requirements and respond with a tailored quote.
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+  Let’s make the numbers simpler
 </p>
-                <p className="text-primary-foreground/80 mb-12 max-w-md text-lg">
-                  Whether you need a full accounting team or just someone to handle your tax submissions, we're ready to help.
-                </p>
+
+<h2 className="mt-4 max-w-lg text-3xl font-bold leading-tight text-primary-foreground sm:text-4xl">
+  Practical financial support for the next stage of your business.
+</h2>
+
+<p className="mt-5 mb-12 max-w-md text-lg leading-relaxed text-primary-foreground/80">
+  Tell us what you need help with and a little about your business. We’ll
+  listen first, then recommend the most practical next step.
+</p>
                 
                 <div className="space-y-8">
                   <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
@@ -126,7 +131,7 @@ const {
                   </a>
                 </Button>
                 <div className="flex items-center gap-2 text-primary-foreground/80 text-sm font-medium">
-                  <Clock className="w-4 h-4" /> Typically responds within 2 hours
+                  <Clock className="w-4 h-4" /> Send us a message during business hours
                 </div>
               </div>
             </div>
@@ -159,29 +164,74 @@ const {
     {...register("website")}
   />
 </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-6">Or leave an enquiry</h3>
+                  <h3 className="mb-6 text-2xl font-bold text-foreground">
+  Prefer to write? Send an enquiry.
+</h3>
                   
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground">Full Name</label>
-                    <Input {...register("name")} placeholder="John Doe" className="bg-background h-11" />
+                   <label
+  htmlFor="contact-name"
+  className="text-sm font-semibold text-foreground"
+>
+  Full Name
+</label>
+<Input
+  id="contact-name"
+  {...register("name")}
+  placeholder="John Doe"
+  autoComplete="name"
+  className="h-11 bg-background"
+/>
                     {errors.name && <p className="text-destructive text-xs">{errors.name.message}</p>}
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground">Email Address</label>
-                    <Input {...register("email")} type="email" placeholder="john@company.co.za" className="bg-background h-11" />
+                    <label
+  htmlFor="contact-email"
+  className="text-sm font-semibold text-foreground"
+>
+  Email Address
+</label>
+<Input
+  id="contact-email"
+  {...register("email")}
+  type="email"
+  placeholder="john@company.co.za"
+  autoComplete="email"
+  className="h-11 bg-background"
+/>
                     {errors.email && <p className="text-destructive text-xs">{errors.email.message}</p>}
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground">Business Type / Industry</label>
-                    <Input {...register("businessType")} placeholder="e.g. Creative Agency, Retail" className="bg-background h-11" />
+                    <label
+  htmlFor="contact-business-type"
+  className="text-sm font-semibold text-foreground"
+>
+  Business Type / Industry
+</label>
+<Input
+  id="contact-business-type"
+  {...register("businessType")}
+  placeholder="e.g. Creative Agency, Retail"
+  className="h-11 bg-background"
+/>
                     {errors.businessType && <p className="text-destructive text-xs">{errors.businessType.message}</p>}
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-foreground">Which service do you need a quote for?</label>
-                    <Textarea {...register("message")} placeholder="Tell us which service you need, your business type, and anything else we should know..." className="bg-background resize-none h-32 py-3" />
+                    <label
+  htmlFor="contact-message"
+  className="text-sm font-semibold text-foreground"
+>
+  Which service do you need a quote for?
+</label>
+<Textarea
+  id="contact-message"
+  {...register("message")}
+  placeholder="Tell us which service you need, your business type, and anything else we should know..."
+  className="h-32 resize-none bg-background py-3"
+/>
                     {errors.message && <p className="text-destructive text-xs">{errors.message.message}</p>}
                   </div>
 
@@ -199,10 +249,10 @@ const {
                     </Button>
                     <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground text-xs font-medium">
                       <div className="flex items-center gap-1.5">
-                        <Lock className="w-4 h-4 text-primary" /> 256-bit encrypted
+                        <Lock className="w-4 h-4 text-primary" /> Secure form submission
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <ShieldCheck className="w-4 h-4 text-primary" /> POPIA compliant
+                        <ShieldCheck className="w-4 h-4 text-primary" /> Your information is kept private
                       </div>
                     </div>
                   </div>
