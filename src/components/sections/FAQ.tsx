@@ -11,7 +11,7 @@ const faqs = [
   { q: "How quickly can you start?", a: "Typically within 48 hours of signing our engagement letter. We'll set up your client portal, collect your documents, and have your first monthly cycle covered." },
 ];
 
-export function FAQ() {
+export function FAQ() {thre
   return (
     <section className="py-24 bg-white border-t border-border">
       <div className="container mx-auto px-6">

@@ -15,7 +15,7 @@ description: "Tell us what your business needs help with. We’ll recommend the 
   {
     icon: FileText,
     title: "Receive Your Proposal",
-    description: "Custom package tailored to your business size and complexity within 24 hours."
+    description: "Custom package tailored to your business size and complexity."
   },
   {
     icon: ShieldCheck,
