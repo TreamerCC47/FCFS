@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { X } from "lucide-react";
+import { Link } from "wouter";
 
 type LegalDocument = "terms" | "privacy" | "popia";
 
@@ -128,20 +129,25 @@ export function Footer() {
         <div className="grid md:grid-cols-12 gap-8 mb-12">
           
           <div className="md:col-span-4 lg:col-span-5">
-           <div className="flex items-center gap-3 mb-6">
-  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-    <span className="text-primary-foreground font-bold text-xl leading-none">F</span>
-  </div>
+            <Link
+  href="/"
+  aria-label="FutureCents home"
+  className="mb-6 flex items-center gap-3"
+>
+  <span className="brand-mark" aria-hidden="true">
+    <span>fc</span>
+  </span>
 
-  <div>
-    <div className="font-bold text-xl tracking-tight text-primary leading-none">
+  <span className="flex flex-col">
+    <span className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">
       FutureCents
-    </div>
-    <div className="text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mt-1">
+    </span>
+
+    <span className="text-[0.58rem] font-bold uppercase tracking-[0.16em] text-muted-foreground">
       Accounting · Tax · Compliance
-    </div>
-  </div>
-</div>
+    </span>
+  </span>
+</Link>
            <p className="text-sm text-muted-foreground max-w-sm">
   Practical accounting, tax, payroll, and business support for South African
   small businesses.
