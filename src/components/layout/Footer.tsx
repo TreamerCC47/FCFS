@@ -128,12 +128,20 @@ export function Footer() {
         <div className="grid md:grid-cols-12 gap-8 mb-12">
           
           <div className="md:col-span-4 lg:col-span-5">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg leading-none">F</span>
-              </div>
-              <span className="font-bold text-xl tracking-tight text-primary">FutureCents</span>
-            </div>
+           <div className="flex items-center gap-3 mb-6">
+  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+    <span className="text-primary-foreground font-bold text-xl leading-none">F</span>
+  </div>
+
+  <div>
+    <div className="font-bold text-xl tracking-tight text-primary leading-none">
+      FutureCents
+    </div>
+    <div className="text-[10px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mt-1">
+      Accounting · Tax · Compliance
+    </div>
+  </div>
+</div>
            <p className="text-sm text-muted-foreground max-w-sm">
   Practical accounting, tax, payroll, and business support for South African
   small businesses.
