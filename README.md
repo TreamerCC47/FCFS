@@ -1,17 +1,18 @@
 # FutureCents
 
-FutureCents is a React and Vite website for an accounting and compliance
-business serving South African small businesses.
+FutureCents is a React and Vite website for an accounting, tax, payroll, and
+compliance business serving South African small businesses and individuals.
 
-The site is deployed on Vercel and uses server-side Vercel API functions for
-invoice lookup, Whop checkout creation, Whop payment webhooks, and contact
-submissions.
+The application is deployed on Vercel and uses server-side Vercel API
+functions for contact submissions, invoice lookup, Whop checkout creation, and
+Whop payment webhooks.
 
 ## Local development
 
 Requirements:
 
 - Node.js 20 or newer
+- npm
 - Access to the required environment variables for API testing
 
 Install dependencies:
