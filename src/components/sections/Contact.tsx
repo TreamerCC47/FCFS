@@ -208,12 +208,12 @@ const {
   htmlFor="contact-business-type"
   className="text-sm font-semibold text-foreground"
 >
-  Business Type / Industry
+ What do you need help with?
 </label>
 <Input
   id="contact-business-type"
   {...register("businessType")}
-  placeholder="e.g. Creative Agency, Retail"
+  placeholder="e.g. starting a company, SARS compliance, financial statements"
   className="h-11 bg-background"
 />
                     {errors.businessType && <p className="text-destructive text-xs">{errors.businessType.message}</p>}
@@ -224,12 +224,12 @@ const {
   htmlFor="contact-message"
   className="text-sm font-semibold text-foreground"
 >
-  Which service do you need a quote for?
+ Tell us about your business and your current situation
 </label>
 <Textarea
   id="contact-message"
   {...register("message")}
-  placeholder="Tell us which service you need, your business type, and anything else we should know..."
+  placeholder="Tell us what your business does, whether it is already registered, and what you need help with."
   className="h-32 resize-none bg-background py-3"
 />
                     {errors.message && <p className="text-destructive text-xs">{errors.message.message}</p>}

@@ -6,7 +6,8 @@ const services = [
   {
   icon: BookOpen,
   title: "Monthly Bookkeeping",
-  description: "Keep your business finances organised and up to date with accurate monthly bookkeeping and reconciliations.",
+  description:
+  "Keep your financial records accurate and current so tax deadlines, reporting, and business decisions are based on reliable information.",
   includes: [
     "Bank & credit card reconciliation",
     "Income & expense recording",
@@ -17,7 +18,8 @@ const services = [
 {
   icon: Calculator,
   title: "Tax Compliance",
-  description: "Stay on top of your tax obligations with practical support for submissions, calculations, and SARS compliance.",
+  description:
+  "Understand your tax obligations, stay organised around SARS deadlines, and get support with the submissions and information your business requires.",
   includes: [
     "VAT calculations & submissions",
     "Provisional tax calculations",
@@ -39,7 +41,8 @@ const services = [
 {
   icon: FileText,
   title: "Annual Financial Statements",
-  description: "Clear, professionally prepared financial statements to help you understand your business and meet your annual reporting requirements.",
+  description:
+  "Clear financial statements prepared to help you meet reporting requirements, support funding or tender applications, and understand your business performance.",
   includes: [
     "Annual financial statement preparation",
     "Income statement & balance sheet",
@@ -73,7 +76,7 @@ export function Services() {
 </h2>
 
 <h3 className="text-3xl md:text-5xl font-bold mb-4">
-  The financial work behind a healthy business.
+  Get the financial foundations right — then keep them on track.
 </h3>
 
 <p className="text-primary-foreground/80 text-lg max-w-xl">

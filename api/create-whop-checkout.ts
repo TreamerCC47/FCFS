@@ -137,7 +137,7 @@ export default async function handler(
         
         plan_id: invoice.whop_plan_id,
         mode: 'payment',
-        redirect_url: `${siteUrl}/#/pay?invoice=${encodeURIComponent(invoiceNumber)}`,
+        redirect_url: `${siteUrl}/pay?invoice=${encodeURIComponent(invoiceNumber)}`,
         metadata: {
           invoice_number: invoiceNumber,
         },

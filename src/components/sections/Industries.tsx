@@ -1,22 +1,23 @@
+
 import { motion } from "framer-motion";
-import { ShoppingCart, Hammer, Paintbrush, Heart, Laptop, Coffee, Briefcase, Globe } from "lucide-react";
+import {
+  Briefcase,
+  FileCheck,
+  FileText,
+  TrendingUp,
+} from "lucide-react";
 
 const industries = [
-  { name: "Retail & E-commerce", icon: ShoppingCart },
-  { name: "Construction & Trades", icon: Hammer },
-  { name: "Creative & Media", icon: Paintbrush },
-  { name: "Healthcare & Wellness", icon: Heart },
-  { name: "Tech & Software", icon: Laptop },
-  { name: "Hospitality & Food", icon: Coffee },
-  { name: "Professional Services", icon: Briefcase },
-  { name: "Non-Profit & NGO", icon: Globe },
+  { name: "Starting or formalising a business", icon: Briefcase },
+  { name: "Trying to stay SARS compliant", icon: FileCheck },
+  { name: "Preparing financial statements", icon: FileText },
+  { name: "Building better financial systems", icon: TrendingUp },
 ];
-
 export function Industries() {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-12">We serve businesses across every industry</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-12">Support for the financial stage your business is entering</h3>
         
         <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto mb-10">
           {industries.map((ind, i) => (
@@ -35,7 +36,7 @@ export function Industries() {
         </div>
         
         <p className="text-muted-foreground text-sm max-w-md mx-auto italic">
-          Don't see your industry? Every business is welcome. We adapt to you.
+      Whether you are formalising your business, dealing with SARS requirements, or preparing financial statements, we start by understanding your current position and recommending the most practical next step.
         </p>
       </div>
     </section>

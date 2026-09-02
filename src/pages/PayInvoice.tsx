@@ -447,11 +447,11 @@ function SupportPanel({ onClose }: { onClose: () => void }) {
           </a>
 
           <a
-            href="tel:+27105550184"
+            href="tel:+27816733268"
             className="flex items-center gap-3 rounded-xl border border-[#dedacd] bg-[#fbfaf6] px-3.5 py-3 text-[.76rem] font-bold text-[#315e4c] hover:border-[#91a293]"
           >
             <Phone size={16} />
-            +27 10 555 0184
+            +27 81 673 3268
             <MoveUpRight size={14} className="ml-auto" />
           </a>
         </div>
@@ -478,9 +478,13 @@ export default function PayInvoice() {
   const [supportOpen, setSupportOpen] = useState(false);
 
   useEffect(() => {
-    const queryString = window.location.hash.split('?')[1] ?? '';
-    const params = new URLSearchParams(queryString);
-    const invoiceFromUrl = params.get('invoice');
+    const params = new URLSearchParams(window.location.search);
+const legacyParams = new URLSearchParams(
+  window.location.hash.split('?')[1] ?? '',
+);
+
+const invoiceFromUrl =
+  params.get('invoice') ?? legacyParams.get('invoice');
 
     if (invoiceFromUrl) {
       setInvoiceNumber(invoiceFromUrl);
