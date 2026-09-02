@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { X } from "lucide-react";
 import { Link } from "wouter";
 
