@@ -60,11 +60,12 @@ export function Navbar() {
     };
   }, []);
 
-  const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Why FutureCents", href: "#why-us" },
-    { name: "Pricing", href: "#pricing" },
-  ];
+const navLinks = [
+  { name: "Services", href: "#services" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "How it works", href: "#how-it-works" },
+  { name: "FAQs", href: "#faq" },
+];
 
   const scrollToSection = (href: string) => {
     setMobileMenuOpen(false);
@@ -156,7 +157,7 @@ export function Navbar() {
               onClick={() => scrollToSection("#contact")}
               className="gap-2"
             >
-              Start a conversation
+              Get a quote
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
@@ -229,7 +230,7 @@ export function Navbar() {
               onClick={() => scrollToSection("#contact")}
               className="h-12 w-full gap-2"
             >
-              Start a conversation
+              Get a quote
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

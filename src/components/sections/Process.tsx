@@ -26,7 +26,10 @@ description: "Tell us what your business needs help with. We’ll recommend the 
 
 export function Process() {
   return (
-    <section className="py-24 bg-background overflow-hidden">
+    <section
+  id="how-it-works"
+  className="scroll-mt-28 overflow-hidden bg-background py-24"
+>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">How It Works</h2>

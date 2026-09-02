@@ -11,12 +11,12 @@ import { Footer } from "../layout/Footer";
 export function HomeBelowFold() {
   return (
     <>
-      <Process />
       <ValueProps />
       <Services />
       <Pricing />
-      <Industries />
+      <Process />
       <EngagementTerms />
+      <Industries />
       <FAQ />
       <Contact />
       <Footer />
