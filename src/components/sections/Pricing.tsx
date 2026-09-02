@@ -19,7 +19,7 @@ const packages = [
   {
     name: "Tax Support",
     description:
-      "Essential tax support for individuals, freelancers, and small businesses.",
+      "Essential tax support for individuals, freelancers, and small businesses that need help understanding their obligations and staying organised around SARS requirements.",
     price: 1500,
     billing: "per month",
     checkoutUrl: checkoutLinks.taxLite,
@@ -47,13 +47,13 @@ const packages = [
   },
   {
     name: "Full SME Support",
-    description:
-      "A complete outsourced finance service for growing small and medium businesses.",
+   description:
+  "Ongoing bookkeeping, tax, payroll, and reporting support for businesses that are formalising their systems and preparing for their next stage of growth.",
     price: 5500,
     billing: "per month",
     checkoutUrl: checkoutLinks.fullSmeSupport,
     features: [
-      "Full bookkeeping up to 50 transactions",
+      "Full bookkeeping",
       "Monthly management reports",
       "Tax calculations",
       "Payroll for up to eight employees",
@@ -64,6 +64,15 @@ const packages = [
   },
 ];
 const directOneOffServices = [
+  
+    {
+    name: "Company Setup/Registration",
+    price: 2500,
+    priceLabel: "once-off",
+    description:
+  "Support for entrepreneurs who are formalising their business and need help understanding the registration and compliance steps involved.",
+    checkoutUrl: "https://whop.com/future-cents/company-setup-registrations/",
+  },
   {
     name: "VAT or PAYE Registration Support",
     price: 2000,
@@ -87,15 +96,8 @@ const directOneOffServices = [
     description:
       "Assistance with obtaining a tax clearance certificate for your business needs.",
     checkoutUrl: "https://whop.com/future-cents/tax-clearance-certificate/",
-  },
-  {
-    name: "Company Setup/Registration",
-    price: 2500,
-    priceLabel: "once-off",
-    description:
-      "Get your company setup started with practical support for the required process.",
-    checkoutUrl: "https://whop.com/future-cents/company-setup-registrations/",
-  },
+  }
+
 ];
 
 const quoteServices = [
@@ -232,7 +234,7 @@ explained clearly before work begins.
                 href={pkg.checkoutUrl}
                 className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
-                Choose this service
+                Request a recommendation
                 <ArrowRight className="h-4 w-4" />
               </a>
 

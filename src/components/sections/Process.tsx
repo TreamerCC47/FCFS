@@ -4,8 +4,8 @@ import { Phone, Search, FileText, ShieldCheck } from "lucide-react";
 const steps = [
   {
     icon: Phone,
-    title: "Book a Free Call",
-    description: "20-minute discovery call, no obligation."
+    title: "Send a Short Enquiry",
+description: "Tell us what your business needs help with. We’ll recommend the next step."
   },
   {
     icon: Search,
@@ -15,7 +15,7 @@ const steps = [
   {
     icon: FileText,
     title: "Receive Your Proposal",
-    description: "Custom package tailored to your business size and complexity within 24 hours."
+    description: "Custom package tailored to your business size and complexity."
   },
   {
     icon: ShieldCheck,

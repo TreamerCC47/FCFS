@@ -47,16 +47,12 @@ export function Hero() {
             </div>
 
             <h1 className="mb-7 max-w-2xl text-5xl font-extrabold leading-[1.06] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-              Clear numbers.
-              <br />
-              <span className="text-primary">Confident decisions.</span>
-            </h1>
+             Start right.
+<br />
+<span className="text-primary">Stay compliant.</span>            </h1>
 
             <p className="mb-9 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
-              FutureCents helps owner-managed businesses stay organised with
-              practical bookkeeping, tax, payroll, and compliance support.
-              Clear advice, dependable follow-through, and no unnecessary
-              jargon.
+              FutureCents helps new and growing owner-managed businesses formalise their financial processes, stay on top of SARS obligations, and prepare clear financial statements — without confusing jargon or unnecessary complexity.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -94,7 +90,7 @@ export function Hero() {
 
               <span className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-primary" />
-                Remote across South Africa
+                Support for new and growing businesses
               </span>
             </div>
           </div>
