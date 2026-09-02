@@ -134,9 +134,6 @@ export function Footer() {
               </div>
               <span className="font-bold text-xl tracking-tight text-primary">FutureCents</span>
             </div>
-            <p className="text-muted-foreground text-sm max-w-sm mb-8 leading-relaxed">
-              Smart. Simple. Solid Finance. South Africa's trusted accounting and compliance partner for growing small businesses.
-            </p>
            <p className="text-sm text-muted-foreground max-w-sm">
   Practical accounting, tax, payroll, and business support for South African
   small businesses.
