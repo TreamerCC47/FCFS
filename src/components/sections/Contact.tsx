@@ -124,9 +124,9 @@ const {
       <p className="text-sm font-medium text-primary-foreground/60">
         Email
       </p>
-      <p className="break-all text-base font-semibold leading-6 sm:text-lg">
-        enquiries@futurecents.co.za
-      </p>
+    <p className="whitespace-nowrap text-[clamp(0.75rem,3.6vw,1.125rem)] font-semibold leading-6 tracking-tight">
+  enquiries@futurecents.co.za
+</p>
     </div>
   </a>
 
