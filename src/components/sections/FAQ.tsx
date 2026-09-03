@@ -13,13 +13,15 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="py-24 bg-white border-t border-border">
+    <section
+  id="faq"
+  className="scroll-mt-28 border-t border-border bg-white py-24"
+>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Common Questions</h2>
           <h3 className="text-3xl font-bold text-foreground mb-4">Everything you need to know.</h3>
         </div>
-
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-8 gap-y-4">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.slice(0, 4).map((faq, index) => (
