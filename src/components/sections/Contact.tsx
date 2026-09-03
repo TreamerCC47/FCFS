@@ -67,13 +67,13 @@ const {
 };
 
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="bg-background py-16 sm:py-24">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="bg-primary rounded-3xl overflow-hidden shadow-2xl">
           <div className="grid lg:grid-cols-2">
             
             {/* Left Info Panel */}
-            <div className="p-10 lg:p-16 text-primary-foreground flex flex-col justify-between relative overflow-hidden">
+            <div className="relative flex flex-col justify-between overflow-hidden p-6 text-primary-foreground sm:p-10 lg:p-16">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-xl"></div>
               
@@ -91,38 +91,61 @@ const {
   listen first, then recommend the most practical next step.
 </p>
                 
-                <div className="space-y-8">
-                  <a href="https://wa.me/27816733268" target="_blank" rel="noreferrer" className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors">
-                      <MessageSquare className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary-foreground/60 font-medium">WhatsApp Us</p>
-                      <p className="font-semibold text-lg">+27 81 673 3268</p>
-                    </div>
-                  </a>
-                  
-                  <a href="mailto:enquiries@futurecents.co.za" className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center group-hover:bg-primary-foreground group-hover:text-primary transition-colors">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary-foreground/60 font-medium">Email</p>
-                      <p className="font-semibold text-lg">enquiries@futurecents.co.za</p>
-                    </div>
-                  </a>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-full flex items-center justify-center">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary-foreground/60 font-medium">Location</p>
-                      <p className="font-semibold text-lg">Remote across South Africa</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               <div className="space-y-8">
+  <a
+    href="https://wa.me/27816733268"
+    target="_blank"
+    rel="noreferrer"
+    className="group flex min-w-0 items-start gap-4"
+  >
+    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors group-hover:bg-[#25D366] group-hover:text-white">
+      <MessageSquare className="h-5 w-5" />
+    </div>
+
+    <div className="min-w-0 flex-1">
+      <p className="text-sm font-medium text-primary-foreground/60">
+        WhatsApp Us
+      </p>
+      <p className="text-base font-semibold leading-6 sm:text-lg">
+        +27 81 673 3268
+      </p>
+    </div>
+  </a>
+
+  <a
+    href="mailto:enquiries@futurecents.co.za"
+    className="group flex min-w-0 items-start gap-4"
+  >
+    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors group-hover:bg-primary-foreground group-hover:text-primary">
+      <Mail className="h-5 w-5" />
+    </div>
+
+    <div className="min-w-0 flex-1">
+      <p className="text-sm font-medium text-primary-foreground/60">
+        Email
+      </p>
+      <p className="break-all text-base font-semibold leading-6 sm:text-lg">
+        enquiries@futurecents.co.za
+      </p>
+    </div>
+  </a>
+
+  <div className="flex min-w-0 items-start gap-4">
+    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10">
+      <MapPin className="h-5 w-5" />
+    </div>
+
+    <div className="min-w-0 flex-1">
+      <p className="text-sm font-medium text-primary-foreground/60">
+        Location
+      </p>
+      <p className="text-base font-semibold leading-6 sm:text-lg">
+        Remote across South Africa
+      </p>
+    </div>
+  </div>
+   </div>
+</div>
 
               <div className="mt-16 relative z-10">
                 <Button asChild className="bg-[#25D366] text-white hover:bg-[#20b858] border-none text-base h-12 gap-2 w-full sm:w-auto mb-3">
@@ -137,7 +160,7 @@ const {
             </div>
 
             {/* Right Form Panel */}
-            <div className="bg-white p-10 lg:p-16 border-l border-border flex flex-col justify-center">
+            <div className="flex flex-col justify-center border-l border-border bg-white p-6 sm:p-10 lg:p-16">
               {isSuccess ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
