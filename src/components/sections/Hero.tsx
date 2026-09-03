@@ -52,7 +52,7 @@ export function Hero() {
 <span className="text-primary">Stay compliant.</span>            </h1>
 
             <p className="mb-9 max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
-              FutureCents helps new and growing owner-managed businesses formalise their financial processes, stay on top of SARS obligations, and prepare clear financial statements — without confusing jargon or unnecessary complexity.
+              FutureCents helps new and growing owner-managed businesses formalise their financial processes, stay on top of SARS obligations, and prepare clear financial statements — without unnecessary complexity.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
