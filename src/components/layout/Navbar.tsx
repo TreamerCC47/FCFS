@@ -83,7 +83,7 @@ const navLinks = [
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
           ? "border-b border-border bg-background/95 py-3 shadow-sm backdrop-blur-md"
-          : "bg-transparent py-5 sm:py-6"
+          : "bg-transparent py-3 sm:py-4"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
