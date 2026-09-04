@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1200 200" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 75 1200 210" role="img" aria-labelledby="title desc">
   <title id="title">FutureCents Ledger logo</title>
   <desc id="desc">An open circular ledger and growth arrow mark followed by the FutureCents wordmark.</desc>
-  <rect width="1200" height="360" fill="none"/>
+  <rect width="1200" height="370" fill="none"/>
   <g transform="translate(45 65)">
     <circle cx="112" cy="112" r="91" fill="none" stroke="#0D4F3D" stroke-width="25" stroke-linecap="round" stroke-dasharray="485 86" transform="rotate(-42 112 112)"/>
     <path d="M77 151V109h37v-28h37v-28h38v98h-38v-42h-37v42H77Z" fill="#4A8F7A"/>
