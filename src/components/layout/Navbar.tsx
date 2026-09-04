@@ -92,19 +92,11 @@ const navLinks = [
           onClick={() => setMobileMenuOpen(false)}
           className="flex items-center gap-3"
         >
-          <span className="brand-mark" aria-hidden="true">
-            <span>fc</span>
-          </span>
-
-          <span className="flex flex-col">
-            <span className="text-lg font-extrabold tracking-tight text-primary sm:text-xl">
-              FutureCents
-            </span>
-
-            <span className="hidden text-[0.58rem] font-bold uppercase tracking-[0.16em] text-muted-foreground sm:block">
-              Accounting · Tax · Compliance
-            </span>
-          </span>
+          <img
+  src="/FC_Header_logo.svg"
+  alt="FutureCents Accounting, Tax, Compliance"
+  className="block h-auto w-[350px] sm:w-[385px]"
+/>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
