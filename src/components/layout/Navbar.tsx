@@ -95,7 +95,7 @@ const navLinks = [
           <img
   src="/FC_Header_logo.svg"
   alt="FutureCents Accounting, Tax, Compliance"
-  className="block h-auto w-[300px] sm:w-[335px]"
+  className="block h-auto w-[350px] sm:w-[385px]"
 />
         </Link>
 
