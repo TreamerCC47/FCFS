@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">FutureCents accounting and tax support</title>
+  <desc id="desc">FutureCents helps South African small businesses stay financially organised and compliant.</desc>
+  <rect width="1200" height="630" fill="#f7f4ec"/>
+  <path d="M0 0h1200v630H0z" fill="url(#grid)" opacity=".35"/>
+  <circle cx="1000" cy="110" r="250" fill="#0f5132" opacity=".08"/>
+  <circle cx="180" cy="580" r="220" fill="#f5b923" opacity=".12"/>
+  <rect x="96" y="92" width="74" height="74" rx="20" fill="#f5b923"/>
+  <rect x="82" y="78" width="74" height="74" rx="20" fill="#0f5132"/>
+  <text x="103" y="126" fill="#f7f4ec" font-family="Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="-2">fc</text>
+  <text x="198" y="128" fill="#0f5132" font-family="Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="-2">FutureCents</text>
+  <text x="102" y="290" fill="#0f5132" font-family="Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-3">Start right.</text>
+  <text x="102" y="370" fill="#0f5132" font-family="Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-3">Stay compliant.</text>
+  <text x="106" y="440" fill="#568174" font-family="Arial, sans-serif" font-size="25" font-weight="600">Accounting · Tax · Payroll · Business Support</text>
+  <rect x="102" y="502" width="450" height="4" rx="2" fill="#f5b923"/>
+  <defs>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#0f5132" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>
