@@ -16,14 +16,17 @@ import { Footer } from "../components/layout/Footer";
 
 type Service = {
   icon: LucideIcon;
+  slug?: string;
   title: string;
   description: string;
   includes: string[];
+  
 };
 
 const services: Service[] = [
   {
     icon: BookOpen,
+    slug: "bookkeeping",
     title: "Monthly Bookkeeping",
     description:
       "Keep your financial records accurate and current so you can understand how your business is performing and stay prepared for tax and reporting requirements.",
@@ -37,6 +40,7 @@ const services: Service[] = [
   },
   {
     icon: Calculator,
+    slug: "tax-compliance",
     title: "Tax and SARS Compliance",
     description:
       "Get practical support with the tax work your business needs, including organising information, understanding deadlines, and preparing for SARS submissions.",
@@ -50,6 +54,7 @@ const services: Service[] = [
   },
   {
     icon: Users,
+    slug: "payroll",
     title: "Payroll Administration",
     description:
       "Make monthly payroll easier to manage with accurate records, payslips, and support for the submissions connected to your employees.",
@@ -316,6 +321,15 @@ export default function Services() {
                       ))}
                     </ul>
                   </div>
+                  {service.slug && (
+  <a
+    href={`/services/${service.slug}`}
+    className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+  >
+    Learn more
+    <ArrowRight className="h-4 w-4" />
+  </a>
+)}
                 </article>
               );
             })}
