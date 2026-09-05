@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import FAQPage from "./pages/FAQPage";
 import BookkeepingGuide from "./pages/BookkeepingGuide";
+import TaxComplianceGuide from "./pages/TaxComplianceGuide";
 import NotFound from "./pages/not-found";
 
 const PayInvoice = lazy(() => import("./pages/PayInvoice"));
@@ -48,6 +49,10 @@ function Router() {
 <Route
   path="/guides/bookkeeping-south-africa"
   component={BookkeepingGuide}
+/>
+<Route
+  path="/guides/tax-compliance-south-africa"
+  component={TaxComplianceGuide}
 />
       <Route path="/pay" component={PayInvoiceRoute} />
   <Route component={NotFound} />

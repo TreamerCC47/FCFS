@@ -17,6 +17,22 @@
   "source": "/faq/",
   "destination": "/faq/index.html"
 },
+{
+  "source": "/guides/bookkeeping-south-africa",
+  "destination": "/guides/bookkeeping-south-africa/index.html"
+},
+{
+  "source": "/guides/bookkeeping-south-africa/",
+  "destination": "/guides/bookkeeping-south-africa/index.html"
+},
+{
+  "source": "/guides/tax-compliance-south-africa",
+  "destination": "/guides/tax-compliance-south-africa/index.html"
+},
+{
+  "source": "/guides/tax-compliance-south-africa/",
+  "destination": "/guides/tax-compliance-south-africa/index.html"
+},
   {
     "source": "/((?!api/).*)",
     "destination": "/index.html"
