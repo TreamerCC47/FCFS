@@ -222,7 +222,7 @@ export default function Services() {
             </p>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
-              Accounting and tax services for South African small businesses
+              Accounting And Tax Services For Your Business Needs.
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
