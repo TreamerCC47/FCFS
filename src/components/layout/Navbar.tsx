@@ -101,7 +101,7 @@ const scrollToSection = (href: string) => {
           <img
   src="/FC_Header_logo.svg"
   alt="FutureCents Accounting, Tax, Compliance"
-  className="block h-auto w-[380px] sm:w-[415px]"
+  className="block h-auto w-[420px] max-w-full sm:w-[415px]"
 />
         </Link>
 
@@ -211,7 +211,7 @@ const scrollToSection = (href: string) => {
             <Button
               asChild
               variant="outline"
-              className="h-20 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
+              className="h-12 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
             >
               <a
                 href="https://wa.me/27816733268"
