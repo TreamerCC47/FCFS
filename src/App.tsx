@@ -3,10 +3,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Switch, Router as WouterRouter } from "wouter";
 import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
-import NotFound from "./pages/not-found";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
+import FAQPage from "./pages/FAQPage";
+import BookkeepingGuide from "./pages/BookkeepingGuide";
+import TaxComplianceGuide from "./pages/TaxComplianceGuide";
+import NotFound from "./pages/not-found";
 
 const PayInvoice = lazy(() => import("./pages/PayInvoice"));
 
@@ -42,10 +45,17 @@ function Router() {
       <Route path="/services" component={Services} />
 
       <Route path="/services/:slug" component={ServiceDetail} />
-
+      <Route path="/faq" component={FAQPage} />
+<Route
+  path="/guides/bookkeeping-south-africa"
+  component={BookkeepingGuide}
+/>
+<Route
+  path="/guides/tax-compliance-south-africa"
+  component={TaxComplianceGuide}
+/>
       <Route path="/pay" component={PayInvoiceRoute} />
-
-      <Route component={NotFound} />
+  <Route component={NotFound} />
     </Switch>
   );
 }

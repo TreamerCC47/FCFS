@@ -64,7 +64,7 @@ const navLinks = [
   { name: "Services", href: "/services" },
   { name: "Pricing", href: "#pricing" },
   { name: "How it works", href: "#how-it-works" },
-  { name: "FAQs", href: "#faq" },
+  { name: "FAQs", href: "/faq" },
 ];
 
 const scrollToSection = (href: string) => {
