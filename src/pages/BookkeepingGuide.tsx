@@ -70,11 +70,11 @@ export default function BookkeepingGuide() {
               FutureCents guide
             </div>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Small Business Bookkeeping in South Africa: A Practical Guide
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               Good bookkeeping helps you understand how your business is
               performing, prepare for tax obligations and make decisions using
               reliable financial information.
@@ -92,7 +92,7 @@ export default function BookkeepingGuide() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl">
             <section>
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 What is bookkeeping?
               </h2>
 
@@ -112,7 +112,7 @@ export default function BookkeepingGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Why bookkeeping matters for small businesses
               </h2>
 
@@ -141,7 +141,7 @@ export default function BookkeepingGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Which records should a business keep?
               </h2>
 
@@ -164,7 +164,7 @@ export default function BookkeepingGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 A simple monthly bookkeeping routine
               </h2>
 
@@ -186,7 +186,7 @@ export default function BookkeepingGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Common bookkeeping mistakes
               </h2>
 
@@ -205,7 +205,7 @@ export default function BookkeepingGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 When should you get bookkeeping help?
               </h2>
 

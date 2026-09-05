@@ -70,11 +70,11 @@ export default function TaxComplianceGuide() {
               FutureCents guide
             </div>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Small Business Tax Compliance in South Africa: A Practical Guide
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               Understand the records, processes and communication habits that
               can help your business stay prepared for its tax obligations.
             </p>
@@ -91,7 +91,7 @@ export default function TaxComplianceGuide() {
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl">
             <section>
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 What does tax compliance mean?
               </h2>
 
@@ -110,7 +110,7 @@ export default function TaxComplianceGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Tax-related areas small businesses may need to manage
               </h2>
 
@@ -154,7 +154,7 @@ export default function TaxComplianceGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Records your business should organise
               </h2>
 
@@ -186,7 +186,7 @@ export default function TaxComplianceGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 A practical tax-preparation checklist
               </h2>
 
@@ -203,7 +203,7 @@ export default function TaxComplianceGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Common tax compliance mistakes
               </h2>
 
@@ -223,7 +223,7 @@ export default function TaxComplianceGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 When should you get tax compliance help?
               </h2>
 

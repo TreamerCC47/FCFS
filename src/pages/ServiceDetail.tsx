@@ -188,11 +188,11 @@ export default function ServiceDetail() {
               {service.eyebrow}
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               {service.title}
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               {service.intro}
             </p>
 
@@ -226,7 +226,7 @@ export default function ServiceDetail() {
               How we help
             </p>
 
-            <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-4xl">
               Practical support without unnecessary complexity
             </h2>
 
@@ -267,7 +267,7 @@ export default function ServiceDetail() {
               Is this right for you?
             </p>
 
-            <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-4xl">
               This support may be useful if:
             </h2>
 

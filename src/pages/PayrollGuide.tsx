@@ -103,11 +103,11 @@ export default function PayrollGuide() {
               FutureCents guide
             </div>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Payroll for small businesses in South Africa: a practical guide
             </h1>
 
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               Understand the basics of payroll administration, the records to
               keep and when your business may need payroll support.
             </p>
@@ -125,7 +125,7 @@ export default function PayrollGuide() {
           <div className="mx-auto max-w-3xl">
             {payrollSections.map((section) => (
               <section key={section.heading} className="mt-14 first:mt-0">
-                <h2 className="text-3xl font-extrabold text-foreground">
+                <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                   {section.heading}
                 </h2>
 
@@ -136,7 +136,7 @@ export default function PayrollGuide() {
             ))}
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 A simple payroll checklist
               </h2>
 
@@ -162,7 +162,7 @@ export default function PayrollGuide() {
             </section>
 
             <section className="mt-14">
-              <h2 className="text-3xl font-extrabold text-foreground">
+              <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
                 Common payroll mistakes
               </h2>
 

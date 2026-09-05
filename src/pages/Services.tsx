@@ -226,11 +226,11 @@ export default function Services() {
               Our services
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Accounting And Tax Services For Your Business Needs.
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               FutureCents helps owner-managed businesses stay organised,
               understand their numbers, and keep the financial work behind the
               business moving in the right direction.
