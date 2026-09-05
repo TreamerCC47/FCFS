@@ -43,13 +43,13 @@ export function Hero() {
           <div className="max-w-2xl">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.06] px-3.5 py-2 text-sm font-semibold text-primary">
               <span className="h-2 w-2 rounded-full bg-secondary" />
-              Accounting support for South African Small Businesses and Individuals
+              Accounting Support for South African Small Businesses and Individuals
             </div>
 
-            <h1 className="mb-7 max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-             Start right.
+            <h1 className="mb-7 max-w-2xl text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+             Start Right.
 <br />
-<span className="text-primary">Stay compliant.</span>  
+<span className="text-primary">Stay Compliant.</span>  
           </h1>
             <p className="mb-9 max-w-xl text-base leading-7 text-muted-foreground sm:text-xl">
               FutureCents helps new and growing owner-managed businesses formalise their financial processes, stay on top of SARS obligations, and prepare clear financial statements — without unnecessary complexity.
