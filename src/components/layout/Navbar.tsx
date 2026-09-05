@@ -211,7 +211,7 @@ const scrollToSection = (href: string) => {
             <Button
               asChild
               variant="outline"
-              className="h-17 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
+              className="h-20 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
             >
               <a
                 href="https://wa.me/27816733268"
