@@ -71,7 +71,7 @@ export default function TaxComplianceGuide() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
-              Small business tax compliance in South Africa: a practical guide
+              Small Business Tax Compliance in South Africa: A Practical Guide
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">

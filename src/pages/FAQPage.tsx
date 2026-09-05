@@ -125,7 +125,7 @@ export default function FAQPage() {
             </p>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
-              Accounting and tax answers for South African small businesses
+              Accounting and Tax answers for South African Small Businesses
             </h1>
 
             <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
