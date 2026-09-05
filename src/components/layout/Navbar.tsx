@@ -101,7 +101,7 @@ const scrollToSection = (href: string) => {
           <img
   src="/FC_Header_logo.svg"
   alt="FutureCents Accounting, Tax, Compliance"
-  className="block h-auto w-[410px] max-w-none shrink-0 sm:w-[415px]"
+  className="block h-auto w-[400px] max-w-none shrink-0 sm:w-[415px]"
 />
         </Link>
 
