@@ -6,6 +6,7 @@ import { TooltipProvider } from "./components/ui/tooltip";
 import NotFound from "./pages/not-found";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 
 const PayInvoice = lazy(() => import("./pages/PayInvoice"));
 
@@ -38,6 +39,7 @@ function Router() {
     <Switch>
      <Route path="/" component={Home} />
 <Route path="/services" component={Services} />
+<Route path="/services/:slug" component={ServiceDetail} />
 <Route path="/pay" component={PayInvoiceRoute} />
       <Route component={NotFound} />
     </Switch>
