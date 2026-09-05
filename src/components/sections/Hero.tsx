@@ -46,7 +46,7 @@ export function Hero() {
               Accounting Support for South African Small Businesses and Individuals
             </div>
 
-            <h1 className="mb-7 max-w-2xl text-5xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mb-7 max-w-2xl text-4.5xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
              Start Right.
 <br />
 <span className="text-primary">Stay Compliant.</span>  

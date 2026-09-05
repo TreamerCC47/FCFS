@@ -211,14 +211,14 @@ const scrollToSection = (href: string) => {
             <Button
               asChild
               variant="outline"
-              className="h-12 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
+              className="h-16 w-full gap-2 border-[#25D366] text-[#188a43] hover:bg-[#25D366]/10 hover:text-[#188a43]"
             >
               <a
                 href="https://wa.me/27816733268"
                 target="_blank"
                 rel="noreferrer"
               >
-                <MessageSquare className="h-4 w-4" />
+                <MessageSquare className="h-4 w-3" />
                 Chat on WhatsApp
               </a>
             </Button>
@@ -229,7 +229,7 @@ const scrollToSection = (href: string) => {
               className="h-12 w-full gap-2"
             >
               Get a quote
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-3" />
             </Button>
           </div>
         </div>
