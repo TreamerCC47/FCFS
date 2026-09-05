@@ -90,11 +90,11 @@ export default function Guides() {
               FutureCents guides
             </div>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Practical accounting guides for South African small businesses
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               Clear, practical information to help you understand bookkeeping,
               tax compliance, payroll and the financial side of running a
               business.

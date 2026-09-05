@@ -124,11 +124,11 @@ export default function FAQPage() {
               Frequently asked questions
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
               Accounting and Tax answers for South African Small Businesses
             </h1>
 
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               Find answers to common questions about bookkeeping, tax
               compliance, payroll and working with FutureCents.
             </p>
