@@ -71,7 +71,7 @@ export default function BookkeepingGuide() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
-              Small business bookkeeping in South Africa: a practical guide
+              Small Business Bookkeeping in South Africa: A Practical Guide
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">

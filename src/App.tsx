@@ -9,6 +9,8 @@ import ServiceDetail from "./pages/ServiceDetail";
 import FAQPage from "./pages/FAQPage";
 import BookkeepingGuide from "./pages/BookkeepingGuide";
 import TaxComplianceGuide from "./pages/TaxComplianceGuide";
+import PayrollGuide from "./pages/PayrollGuide";
+import Guides from "./pages/Guides";
 import NotFound from "./pages/not-found";
 
 const PayInvoice = lazy(() => import("./pages/PayInvoice"));
@@ -54,6 +56,11 @@ function Router() {
   path="/guides/tax-compliance-south-africa"
   component={TaxComplianceGuide}
 />
+<Route
+  path="/guides/payroll-south-africa"
+  component={PayrollGuide}
+/>
+<Route path="/guides" component={Guides} />
       <Route path="/pay" component={PayInvoiceRoute} />
   <Route component={NotFound} />
     </Switch>
