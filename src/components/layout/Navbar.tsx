@@ -61,21 +61,26 @@ export function Navbar() {
   }, []);
 
 const navLinks = [
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "/services" },
   { name: "Pricing", href: "#pricing" },
   { name: "How it works", href: "#how-it-works" },
   { name: "FAQs", href: "#faq" },
 ];
 
-  const scrollToSection = (href: string) => {
-    setMobileMenuOpen(false);
+const scrollToSection = (href: string) => {
+  setMobileMenuOpen(false);
 
-    const element = document.querySelector(href);
+  if (href.startsWith("/")) {
+    window.location.assign(href);
+    return;
+  }
 
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const element = document.querySelector(href);
+
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
   return (
     <nav
