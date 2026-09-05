@@ -33,6 +33,22 @@
   "source": "/guides/tax-compliance-south-africa/",
   "destination": "/guides/tax-compliance-south-africa/index.html"
 },
+{
+  "source": "/guides/payroll-south-africa",
+  "destination": "/guides/payroll-south-africa/index.html"
+},
+{
+  "source": "/guides/payroll-south-africa/",
+  "destination": "/guides/payroll-south-africa/index.html"
+},
+{
+  "source": "/guides",
+  "destination": "/guides/index.html"
+},
+{
+  "source": "/guides/",
+  "destination": "/guides/index.html"
+},
   {
     "source": "/((?!api/).*)",
     "destination": "/index.html"
