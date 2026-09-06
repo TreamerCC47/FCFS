@@ -76,7 +76,7 @@ export function Services() {
 </h2>
 
 <h3 className="text-3xl md:text-5xl font-bold mb-4">
-  Get the financial foundations right — then keep them on track.
+  Get the financial foundations right â€” then keep them on track.
 </h3>
 
 <p className="text-primary-foreground/80 text-lg max-w-xl">
@@ -155,7 +155,7 @@ support the financial work that keeps your business moving.
           >
             <div className="bg-secondary border-none h-full flex flex-col justify-center items-center text-center p-8 rounded-xl shadow-xl">
               <h4 className="text-2xl font-bold text-secondary-foreground mb-2">Not sure what you need?</h4>
-              <p className="text-secondary-foreground/80 mb-6 text-sm font-medium">Tell us where you need help and we’ll shape the right level of support around
+              <p className="text-secondary-foreground/80 mb-6 text-sm font-medium">Tell us where you need help and weâ€™ll shape the right level of support around
 your business.</p>
               <button 
                 onClick={() => {
