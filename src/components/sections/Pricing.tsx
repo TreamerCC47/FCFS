@@ -267,62 +267,7 @@ explained clearly before work begins.
             );
           })}
         </div>
-        <div className="mx-auto mt-24 max-w-6xl border-t border-border pt-16">
-  <div className="mb-10 text-center">
-    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-      Once-off services
-    </p>
-
-    <h3 className="text-3xl font-extrabold text-foreground">
-      Need help with one specific task?
-    </h3>
-
-    <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-      Get focused help with a registration, certificate, compliance task, or
-other once-off finance requirement.
-    </p>
-  </div>
-
-  <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-    {directOneOffServices.map((service) => (
-      <article
-        key={service.name}
-        className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-transform hover:-translate-y-1"
-      >
-        <div className="flex-1">
-          <h4 className="text-lg font-bold text-foreground">
-            {service.name}
-          </h4>
-
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            {service.description}
-          </p>
-
-          <div className="mt-6">
-            <span className="text-2xl font-extrabold text-primary">
-              {formatZar(service.price)}
-            </span>
-
-            <span className="ml-2 text-xs font-semibold text-muted-foreground">
-              {service.priceLabel}
-            </span>
-          </div>
-        </div>
-
-        <a
-          href={service.checkoutUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
-        >
-          Choose this service
-          <ArrowRight className="h-4 w-4" />
-        </a>
-      </article>
-    ))}
-  </div>
-</div>
-
+       
         <div className="mx-auto mt-24 max-w-5xl border-t border-border pt-16">
   <div className="mb-10 text-center">
     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">

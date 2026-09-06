@@ -119,7 +119,52 @@ const services: Service[] = [
     ],
   },
 ];
+const directOneOffServices = [
+  {
+    name: "Company Setup/Registration",
+    price: 2500,
+    priceLabel: "once-off",
+    description:
+      "Support for entrepreneurs who are formalising their business and need help understanding the registration and compliance steps involved.",
+    checkoutUrl:
+      "https://whop.com/future-cents/company-setup-registrations/",
+  },
+  {
+    name: "VAT or PAYE Registration Support",
+    price: 2000,
+    priceLabel: "once-off",
+    description:
+      "Support with the relevant registration process and required business information.",
+    checkoutUrl:
+      "https://whop.com/future-cents/vat-or-paye-registration-support/",
+  },
+  {
+    name: "CIPC Amend Company or Director Details",
+    price: 550,
+    priceLabel: "once-off",
+    description:
+      "Update company or director information through the appropriate CIPC process.",
+    checkoutUrl:
+      "https://whop.com/future-cents/cipc-amend-company-or-director-details",
+  },
+  {
+    name: "Tax Clearance Certificate",
+    price: 500,
+    priceLabel: "per certificate",
+    description:
+      "Assistance with obtaining a tax clearance certificate for your business needs.",
+    checkoutUrl:
+      "https://whop.com/future-cents/tax-clearance-certificate/",
+  },
+];
 
+function formatZar(amount: number) {
+  return new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
 function updateMeta(selector: string, content: string) {
   const element = document.querySelector<HTMLMetaElement>(selector);
 
@@ -336,7 +381,68 @@ export default function Services() {
           </div>
         </div>
       </section>
+      <section
+        id="once-off-services"
+        className="bg-background py-20 sm:py-24"
+      >
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10 text-center">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                Once-off services
+              </p>
 
+              <h2 className="text-3xl font-extrabold text-foreground sm:text-4xl">
+                Need help with one specific task?
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+                Get focused help with a registration, certificate, compliance
+                task, or other once-off finance requirement.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {directOneOffServices.map((service) => (
+                <article
+                  key={service.name}
+                  className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-transform hover:-translate-y-1"
+                >
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-foreground">
+                      {service.name}
+                    </h3>
+
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                      {service.description}
+                    </p>
+
+                    <div className="mt-6">
+                      <span className="text-2xl font-extrabold text-primary">
+                        {formatZar(service.price)}
+                      </span>
+
+                      <span className="ml-2 text-xs font-semibold text-muted-foreground">
+                        {service.priceLabel}
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href={service.checkoutUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
+                  >
+                    Choose this service
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-primary py-20 text-primary-foreground sm:py-24">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
