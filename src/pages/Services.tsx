@@ -120,6 +120,13 @@ const services: Service[] = [
   },
 ];
 
+function formatZar(amount: number) {
+  return new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
 function updateMeta(selector: string, content: string) {
   const element = document.querySelector<HTMLMetaElement>(selector);
 
@@ -336,7 +343,7 @@ export default function Services() {
           </div>
         </div>
       </section>
-
+          
       <section className="bg-primary py-20 text-primary-foreground sm:py-24">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
