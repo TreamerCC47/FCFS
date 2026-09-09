@@ -76,7 +76,7 @@ export function Services() {
 </h2>
 
 <h3 className="text-3xl md:text-5xl font-bold mb-4">
-  Get the financial foundations right â€” then keep them on track.
+  Get the financial foundations right - then keep them on track.
 </h3>
 
 <p className="text-primary-foreground/80 text-lg max-w-xl">
